@@ -3,62 +3,67 @@ import astroLogo from "../assets/astro.svg";
 import background from "../assets/background.svg";
 ---
 
-<div id="container">
-  <img id="background" src={background.src} alt="" fetchpriority="high" />
-  <main>
-    <section id="hero">
-      <a href="https://astro.build"
-        ><img
-          src={astroLogo.src}
-          width="115"
-          height="48"
-          alt="Astro Homepage"
-        /></a
-      >
-      <h1>
-        <code><pre>Desarrollador Web</pre></code>enfocado en calidad,
-        funcionalidad y diseño.
-      </h1>
-      <p>
-        Mi nombre es PEPE LE PEIU me dedico a crear <b>soluciones</b> a través de
-        mi pasión, la programación, mas específicamente, el <b>desarrollo web</b
+<div class="h-full font-sans">
+  <img
+    class="fixed top-0 left-0 w-full h-full -z-10 blur-[100px]"
+    src={background.src}
+    fetchpriority="high"
+  />
+  <main class="h-full flex justify-center">
+    <section class="snap-y snap-mandatory overflow-y-scroll h-[100vh] px-20">
+      <article class="snap-start h-[100dvh] flex justify-center items-center">
+        <a href="https://astro.build"
+          ><img
+            src={astroLogo.src}
+            width="115"
+            height="48"
+            alt="Astro Homepage"
+          /></a
         >
-      </p>
-      <p>
-        Me encanta trabajar con <b>tecnologías modernas</b> y aprender nuevas herramientas
-        para perfeccionar mi trabajo. Actualmente, utilizo tecnologías como JavaScript,
-        React, Python y Django para construir <b>aplicaciones funcionales</b> y atractivas.
-      </p>
-      <p>
-        Soy estudiante de <b>Ciencias de la Computación</b> en la Universidad Central
-        de Venezuela (UCV), la mejor universidad del país, donde he podido desarrollar
-        no solo habilidades técnicas, sino también una <b
-          >sólida ética de trabajo</b
-        >.
-      </p>
-      <p>
-        Durante mi tiempo de estudio he aprendido a trabajar en equipo, ser
-        responsable y adaptarme a diferentes escenarios. Creo firmemente que la
-        <b>colaboración</b> y la <b>comunicación efectiva</b> son la clave del éxito
-        en cualquier proyecto.
-      </p>
+      </article>
+
+      <article
+        class="snap-start h-[100dvh] flex flex-col justify-center gap-5 text-3xl"
+      >
+        <h1 class="text-xl bold text-[#5a67d8]">
+          <code><pre>Desarrollador Web</pre></code>enfocado en calidad,
+          funcionalidad y diseño.
+        </h1>
+        <p>
+          Mi nombre es PEPE LE PEIU me dedico a crear <b>soluciones</b> a través
+          de mi pasión, la programación, mas específicamente, el <b
+            >desarrollo web</b
+          >
+        </p>
+        <p>
+          Me encanta trabajar con <b>tecnologías modernas</b> y aprender nuevas herramientas
+          para perfeccionar mi trabajo. Actualmente, utilizo tecnologías como JavaScript,
+          React, Python y Django para construir <b>aplicaciones funcionales</b> y
+          atractivas.
+        </p>
+        <p>
+          Soy estudiante de <b>Ciencias de la Computación</b> en la Universidad Central
+          de Venezuela (UCV), la mejor universidad del país, donde he podido desarrollar
+          no solo habilidades técnicas, sino también una <b
+            >sólida ética de trabajo</b
+          >.
+        </p>
+        <p>
+          Durante mi tiempo de estudio he aprendido a trabajar en equipo, ser
+          responsable y adaptarme a diferentes escenarios. Creo firmemente que
+          la
+          <b>colaboración</b> y la <b>comunicación efectiva</b> son la clave del
+          éxito en cualquier proyecto.
+        </p>
+      </article>
     </section>
-    <section id="links">
+    <section class="flex gap-4">
       <a
+        class="flex items-center p-3"
         class="button"
         href="https://drive.google.com/file/d/1REJijfqdRFMZ0RRUPOQyyDvodPNrJC3f/view?pli=1"
         target="_blank">MI CURRICULUM</a
       >
-      <a href="https://astro.build/chat"
-        >Join our Discord <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 127.14 96.36"
-          ><path
-            fill="currentColor"
-            d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"
-          ></path></svg
-        >
-      </a>
     </section>
     <img src="crossed_arms.png" class="-scale-x-100" />
   </main>
@@ -77,48 +82,6 @@ import background from "../assets/background.svg";
   </a>
 
   <style>
-    #background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      filter: blur(100px);
-    }
-
-    #container {
-      font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
-        Arial, sans-serif;
-      height: 100%;
-    }
-
-    main {
-      height: 100%;
-      display: flex;
-      justify-content: center;
-    }
-
-    #hero {
-      display: flex;
-      align-items: start;
-      flex-direction: column;
-      gap: 15px;
-      justify-content: center;
-      padding: 16px;
-    }
-
-    h1 {
-      font-size: 1.25rem;
-      color: #5a67d8;
-      font-weight: bold;
-    }
-
-    #links {
-      display: flex;
-      gap: 16px;
-    }
-
     #links a {
       display: flex;
       align-items: center;
