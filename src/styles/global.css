@@ -36,7 +36,7 @@
   width: 2px;
   right: 10%;
   transform: skew(-10deg) translateY(-100%);
-  animation: fadeInLine 1.5s 1.5s forwards ease;
+  animation: fadeInLine 1.5s 1.6s forwards ease;
 }
 
 @keyframes fadeInLine {
@@ -54,8 +54,8 @@
     filter: blur(0.8rem);
   }
   100% {
-    opacity: 0.7;
-    filter: blur(0.2rem);
+    opacity: 0.6;
+    filter: blur(0.3rem);
     transform: skew(-15deg) translateY(0);
   }
 }
@@ -83,6 +83,15 @@
   animation: increase-box-shadow 1.5s 3s ease-out;
 }
 
+.title::after {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  background-color: orange;
+}
+
 @keyframes fadeInHeader {
   from {
     opacity: 0;
@@ -98,7 +107,7 @@
     box-shadow: 0px 10px 40px rgba(59, 130, 246, 0.5);
   }
   100% {
-    box-shadow: 0px 0px 20px rgba(59, 130, 246, 0.3);
+    box-shadow: 0px 0px 10px rgba(59, 130, 246, 0.3);
   }
 }
 
