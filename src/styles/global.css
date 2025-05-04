@@ -1,1 +1,114 @@
 @import "tailwindcss";
+
+.gradient-bg {
+  background: linear-gradient(
+    to bottom right,
+    hsl(217, 91%, 10%),
+    hsl(222, 47%, 11%)
+  );
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #3b82f6, #60a5fa, #93c5fd);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.background_line1,
+.background_line2 {
+  position: fixed;
+  height: 100dvh;
+  top: 0;
+  background-color: rgb(213, 235, 247);
+  z-index: -20;
+}
+
+.background_line1 {
+  position: fixed;
+  width: 5px;
+  right: 25%;
+  transform: skew(-15deg) translateY(-100%);
+  animation: fadeInLine 1.5s 1s forwards ease;
+}
+
+.background_line2 {
+  position: fixed;
+  width: 1px;
+  right: 10%;
+  transform: skew(-10deg) translateY(-100%);
+  animation: fadeInLine 1.5s 1.5s forwards ease;
+}
+
+@keyframes fadeInLine {
+  0% {
+    opacity: 0.3;
+    filter: blur(0.5rem);
+  }
+  20% {
+    transform: skew(-15deg) translateY(0);
+  }
+  40% {
+    filter: blur(0.5rem);
+  }
+  70% {
+    filter: blur(0.8rem);
+  }
+  100% {
+    opacity: 0.7;
+    filter: blur(0.2rem);
+    transform: skew(-15deg) translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0.3;
+    filter: blur(0.7rem);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes increase-box-shadow {
+  50% {
+    box-shadow: 0px 0px 50px white;
+  }
+}
+
+.title {
+  border-radius: 10px;
+  padding: 5px 0px;
+  animation: increase-box-shadow 1.5s 3s ease-out;
+}
+
+@keyframes fadeInHeader {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes aparecer-sombra {
+  0% {
+    box-shadow: none;
+  }
+  50% {
+    box-shadow: 0px 10px 40px rgba(59, 130, 246, 0.5);
+  }
+  100% {
+    box-shadow: 0px 0px 20px rgba(59, 130, 246, 0.3);
+  }
+}
+
+header {
+  animation: fadeInHeader 1s ease-in 5s backwards;
+}
+
+header > nav > ul {
+  animation: aparecer-sombra 1s ease-out 6.5s forwards;
+}
+
+body > * {
+  animation: fadeIn 1.5s ease-in backwards;
+}
