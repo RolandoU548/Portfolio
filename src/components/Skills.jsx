@@ -159,7 +159,7 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills">
+    <section id="skills" className="scroll-mt-20">
       <div className="flex flex-col items-center text-center space-y-4 mb-12">
         <h2 className="text-3xl font-bold tracking-tighter gradient-text">
           Habilidades

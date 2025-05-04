@@ -21,7 +21,7 @@ export const Header = () => {
 
   const navLinks = [
     { name: "Home", href: "#home" },
-    { name: "Sobre Mí", href: "#about" },
+    { name: "Sobre mí", href: "#about" },
     { name: "Proyectos", href: "#projects" },
     { name: "Habilidades", href: "#skills" },
     { name: "Contacto", href: "#contact" },
@@ -33,7 +33,7 @@ export const Header = () => {
         <nav className="p-0 py-4">
           {/* bg-[rgba(2,35,89,0.9)] */}
           <ul
-            className={`flex justify-around rounded-xl p-3 transition-all duration-300 ${
+            className={`font-medium flex justify-around rounded-xl p-3 transition-all duration-300 ${
               isScrolled
                 ? "bg-[rgba(0,0,10,0.7)] backdrop-blur"
                 : "bg-transparent"
@@ -41,7 +41,10 @@ export const Header = () => {
           >
             {navLinks.map((navLink, index) => {
               return (
-                <li key={index}>
+                <li
+                  key={index}
+                  className="transition duration-300 hover:text-[#60a5fa]"
+                >
                   <a href={navLink.href}>{navLink.name}</a>
                 </li>
               );

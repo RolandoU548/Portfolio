@@ -4,6 +4,7 @@ import { Header } from "../components/Header";
 import Footer from "../components/Footer.astro";
 import Skills from "../components/Skills.jsx";
 import Contact from "../components/Contact.astro";
+import Projects from "../components/Projects.astro";
 ---
 
 <Layout>
@@ -11,14 +12,14 @@ import Contact from "../components/Contact.astro";
   <div class="background_line1"></div>
   <div class="background_line2"></div>
   <main class="max-w-4xl mx-auto flex flex-col gap-5">
-    <article>
+    <section>
       <h2 class="text-5xl font-bold">Rolando Uzcátegui</h2>
-      <h3 class="text-4xl font-medium text-cyan-600">
+      <h3 class="text-4xl font-medium text-cyan-500">
         <span class="title">Desarrollador Web</span>
       </h3>
       <h5 class="opacity-80">Enfocado en calidad, funcionalidad y diseño.</h5>
-    </article>
-    <article id="about">
+    </section>
+    <section id="about" class="scroll-mt-20">
       <h2 class="text-3xl font-bold tracking-tighter gradient-text">
         Sobre Mí
       </h2>
@@ -46,122 +47,8 @@ import Contact from "../components/Contact.astro";
         <b>colaboración</b> y la <b>comunicación efectiva</b> son la clave del éxito
         en cualquier proyecto.
       </p>
-    </article>
-    <article id="projects">
-      <h2 class="text-3xl font-bold tracking-tighter gradient-text">
-        Proyectos
-      </h2>
-      <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4">
-        <section class="flex flex-col border-3 border-double rounded-xl p-4">
-          <h3 class="font-bold">SERO</h3>
-          <p>
-            Proyecto de desarrollo web integral con un equipo de 4
-            desarrolladores. Diseñamos y desarrollamos una aplicación web
-            diseñada para emprendedores y empresas, que ofrece una plataforma
-            integral para la planificación y optimización de recursos. Los
-            usuarios pueden iniciar sesión, crear una cuenta, gestionar una base
-            de datos, completar formularios y registrar clientes y pagos. Esta
-            solución integral garantiza que las empresas optimicen sus procesos,
-            ahorrando tiempo y dinero, y mejorando la eficiencia operativa.
-          </p>
-          <div class="flex flex-wrap justify-between gap-2 mt-auto">
-            <div class="border-2 rounded-xl bg-gray-100 p-1">Express</div><div
-              class="border-2 rounded-xl bg-gray-100 p-1"
-            >
-              React
-            </div><div class="border-2 rounded-xl bg-gray-100 p-1">
-              Framer Motion
-            </div><div class="border-2 rounded-xl bg-gray-100 p-1">
-              i18-next
-            </div><div class="border-2 rounded-xl bg-gray-100 p-1">
-              Handsontable
-            </div><div class="border-2 rounded-xl bg-gray-100 p-1">
-              Tailwind
-            </div><div class="border-2 rounded-xl bg-gray-100 p-1">
-              SASS
-            </div><div class="border-2 rounded-xl bg-gray-100 p-1">
-              React Hook Form
-            </div>
-          </div>
-        </section>
-        <section class="flex flex-col border-3 border-double rounded-xl p-4">
-          <h3 class="font-bold">PATAS</h3>
-          <p>
-            Plataforma web diseñada para la gestión creativa de imágenes.
-            Permite a los usuarios subir, descargar, visualizar, editar y
-            eliminar imágenes con facilidad. Su funcionalidad de edición incluye
-            la posibilidad de superponer nuevas imágenes y agregar formas,
-            brindando un espacio dinámico para la creatividad digital.
-            Originalmente concebido para dibujos, Patas ofrece una experiencia
-            intuitiva para artistas y entusiastas del diseño que buscan una
-            herramienta versátil para organizar y transformar sus creaciones.
-          </p>
-          <div class="flex flex-wrap justify-between gap-2 mt-auto">
-            <div class="border-2 rounded-xl bg-gray-100 p-1">Next JS</div><div
-              class="border-2 rounded-xl bg-gray-100 p-1"
-            >
-              Prisma
-            </div><div class="border-2 rounded-xl bg-gray-100 p-1">Fabric</div>
-            <div class="border-2 rounded-xl bg-gray-100 p-1">Firebase</div>
-            <div class="border-2 rounded-xl bg-gray-100 p-1">Shadcn</div><div
-              class="border-2 rounded-xl bg-gray-100 p-1"
-            >
-              Redux
-            </div><div class="border-2 rounded-xl bg-gray-100 p-1">
-              Tailwind
-            </div><div class="border-2 rounded-xl bg-gray-100 p-1">
-              Typescript
-            </div>
-          </div>
-        </section>
-        <section class="flex flex-col border-3 border-double rounded-xl p-4">
-          <h3 class="font-bold">SMART PAGO MÓVIL (Frontend)</h3>
-          <p>
-            Interfaz web intuitiva y funcional diseñada para mejorar la
-            experiencia de pago entre usuarios. Su diseño permite gestionar
-            transacciones de forma eficiente, integrando opciones como la
-            validación de datos, selección de banco destino y una interfaz
-            optimizada para pagos móviles. La implementación de escaneo de QR
-            facilita pagos rápidos y seguros, alineándose con los estándares
-            modernos de accesibilidad y usabilidad. Este proyecto se enfoca en
-            ofrecer una experiencia fluida y bien estructurada para los usuarios
-            dentro del ecosistema de pagos digitales.
-          </p>
-          <div class="flex flex-wrap justify-between gap-2 mt-auto">
-            <div class="border-2 rounded-xl bg-gray-100 p-1">HTML</div><div
-              class="border-2 rounded-xl bg-gray-100 p-1"
-            >
-              CSS
-            </div><div class="border-2 rounded-xl bg-gray-100 p-1">
-              JavaScript
-            </div>
-          </div>
-        </section>
-        <section class="flex flex-col border-3 border-double rounded-xl p-4">
-          <h3 class="font-bold">C2 DEVELOPER GROUP</h3>
-          <p>
-            Un equipo de desarrolladores y diseñadores que ofrece servicios
-            especializados en el desarrollo de aplicaciones, sitios web y
-            comercio electrónico, con un fuerte enfoque en el diseño, la
-            funcionalidad y la seguridad. Su portafolio incluye testimonios de
-            clientes satisfechos que destacan el éxito de tiendas en línea,
-            sitios web de alta calidad y aplicaciones móviles impresionantes.
-            Además, proporciona servicios de mantenimiento y soporte continuos
-            para garantizar la operación segura y eficiente de los proyectos
-            digitales en curso. Además, los usuarios pueden compartir los
-            detalles de sus proyectos para recibir un servicio especializado que
-            realce su presencia en línea, maximice la experiencia del usuario en
-            todos los dispositivos y garantice un entorno digital seguro y
-            confiable a largo plazo.
-          </p>
-          <div class="flex flex-wrap justify-between gap-2 mt-auto">
-            <div class="border-2 rounded-xl bg-gray-100 p-1">Astro</div>
-            <div class="border-2 rounded-xl bg-gray-100 p-1">Framer Motion</div>
-            <div class="border-2 rounded-xl bg-gray-100 p-1">SASS</div>
-          </div>
-        </section>
-      </div>
-    </article>
+    </section>
+    <Projects />
     <Skills />
     <Contact />
   </main>
