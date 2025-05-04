@@ -72,10 +72,15 @@ const projects = [
 
   <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
     {
-      projects.map((project) => (
+      projects.map((project, index) => (
         <div class="flex flex-col p-6 gap-5 rounded-xl bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] backdrop-blur-md border border-blue-500/20 transition-all duration-300 ease-in-out hover:translate-y-[-5px] hover:border-blue-500/50 hover:shadow-[0px_10px_20px_rgba(59,130,246,0.1)]">
           <div class="h-48 w-full">
-            <img src={project.image} alt={project.title} class="object-cover" />
+            <img
+              src={project.image}
+              alt={project.title}
+              class="object-cover"
+              loading={index <= 1 ? "eager" : "lazy"}
+            />
           </div>
           <div>
             <h3 class="text-2xl text-blue-100 font-semibold">
