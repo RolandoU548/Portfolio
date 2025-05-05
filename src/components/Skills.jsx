@@ -165,8 +165,8 @@ export default function Skills() {
           Habilidades
         </h2>
         <p className="text-blue-100 max-w-[700px]">
-          I've worked with a variety of technologies and tools throughout my
-          career. Here are some of the key skills I bring to the table.
+          He trabajado con diversas tecnologías y herramientas a lo largo de mi
+          carrera. Estas son algunas de mis habilidades clave.
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full">
           {skills.map((skill, index) => (
