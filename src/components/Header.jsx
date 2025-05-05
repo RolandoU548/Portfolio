@@ -27,7 +27,7 @@ export const Header = () => {
     };
 
     const observerOptions = {
-      rootMargin: "-25% 0px -75% 0px",
+      rootMargin: "-30% 0px -70% 0px",
     };
 
     const sections = document.querySelectorAll("section");

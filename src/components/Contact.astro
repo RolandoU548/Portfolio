@@ -2,6 +2,82 @@
 
 ---
 
-<section id="contact" class="scroll-mt-20">
-  <h2 class="text-3xl font-bold tracking-tighter gradient-text">Contacto</h2>
+<section id="contact" class="scroll-mt-20 flex flex-col items-center space-y-4">
+  <h2 class="text-3xl font-bold tracking-tighter text-center gradient-text">
+    Contacto
+  </h2>
+  <p class="text-blue-100 max-w-[700px] text-center">
+    Feel free to contact me for any project or collaboration
+  </p>
+
+  <form
+    class="w-full grid grid-cols-1 md:grid-cols-2 gap-5 p-4 rounded-lg bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] backdrop-blur-md border border-blue-500/20"
+  >
+    <p>
+      <label class="text-blue-100" for="name">Nombre</label>
+      <input
+        id="name"
+        name="name"
+        required
+        type="text"
+        class="rounded border border-blue-500/20 transition-all duration-300 ease-in-out w-full p-1 text-blue-300"
+      />
+    </p>
+    <p>
+      <label class="text-blue-100" for="email">Correo Electrónico</label>
+      <input
+        id="email"
+        name="email"
+        required
+        type="text"
+        class="rounded border border-blue-500/20 transition-all duration-300 ease-in-out w-full p-1 text-blue-300"
+      />
+    </p>
+    <p class="col-span-full">
+      <label class="text-blue-100" for="subject">Asunto</label>
+      <input
+        id="subject"
+        name="subject"
+        required
+        type="text"
+        class="rounded border border-blue-500/20 transition-all duration-300 ease-in-out w-full p-1 text-blue-300"
+      />
+    </p>
+    <p class="col-span-full">
+      <label class="text-blue-100" for="message">Mensaje</label>
+      <textarea
+        id="message"
+        name="message"
+        required
+        rows="4"
+        class="rounded border border-blue-500/20 transition-all duration-300 ease-in-out w-full p-1 text-blue-300"
+      ></textarea>
+    </p>
+    <button
+      class="col-span-full cursor-pointer bg-blue-600 hover:bg-blue-500 py-2 px-4 rounded-md font-medium"
+      type="submit">Enviar</button
+    >
+  </form>
 </section>
+
+<script>
+  document.querySelector("form")?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target as HTMLFormElement);
+    const data = Object.fromEntries(
+      Array.from(formData.entries()).map(([key, value]) => [
+        key,
+        value.toString(),
+      ])
+    );
+    console.log(data);
+    const mailtoLink = `mailto:rolandou548@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(`Nombre: ${data.name}%0AEmail: ${data.email}%0A%0AMensaje:%0A${data.message}`)}`;
+
+    const tempLink = document.createElement("a");
+    tempLink.href = mailtoLink;
+    tempLink.style.display = "none";
+    document.body.appendChild(tempLink);
+    tempLink.click();
+    document.body.removeChild(tempLink);
+  });
+</script>

@@ -160,7 +160,7 @@ export default function Skills() {
 
   return (
     <section id="skills" className="scroll-mt-20">
-      <div className="flex flex-col items-center text-center space-y-4 mb-12">
+      <div className="flex flex-col items-center text-center space-y-4">
         <h2 className="text-3xl font-bold tracking-tighter gradient-text">
           Habilidades
         </h2>
@@ -168,21 +168,22 @@ export default function Skills() {
           I've worked with a variety of technologies and tools throughout my
           career. Here are some of the key skills I bring to the table.
         </p>
-      </div>
-
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-        {skills.map((skill, index) => (
-          <div
-            key={index}
-            className="flex flex-col items-center p-4 rounded-lg bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] backdrop-blur-md border border-blue-500/20 transition-all duration-300 ease-in-out hover:translate-y-[-5px] hover:border-blue-500/50 hover:shadow-[0px_10px_20px_rgba(59,130,246,0.1)]"
-          >
-            <div className="p-2 rounded-full bg-blue-500/20 mb-3">
-              {skill.icon}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full">
+          {skills.map((skill, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center p-4 rounded-lg bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] backdrop-blur-md border border-blue-500/20 transition-all duration-300 ease-in-out hover:translate-y-[-5px] hover:border-blue-500/50 hover:shadow-[0px_10px_20px_rgba(59,130,246,0.1)]"
+            >
+              <div className="p-2 rounded-full bg-blue-500/20 mb-3">
+                {skill.icon}
+              </div>
+              <h3 className="font-medium text-sm text-blue-100">
+                {skill.name}
+              </h3>
+              <p className="text-xs text-blue-300">{skill.category}</p>
             </div>
-            <h3 className="font-medium text-sm text-blue-100">{skill.name}</h3>
-            <p className="text-xs text-blue-300">{skill.category}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

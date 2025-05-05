@@ -6,7 +6,7 @@ const projects = [
     title: "SERO PROJECT",
     description:
       "Proyecto de desarrollo web integral con un equipo de 4 desarrolladores. Diseñamos y desarrollamos una aplicación web diseñada para emprendedores y empresas, que ofrece una plataforma integral para la planificación y optimización de recursos. Los usuarios pueden iniciar sesión, crear una cuenta, gestionar una base de datos, completar formularios y registrar clientes y pagos. Esta solución integral garantiza que las empresas optimicen sus procesos, ahorrando tiempo y dinero, y mejorando eficiencia operativa.",
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/sero.jpg",
     tags: [
       "React",
       "Node.js",
@@ -19,14 +19,14 @@ const projects = [
       "SASS",
       "React Hook Form",
     ],
-    liveUrl: "#",
+    liveUrl: "https://sero-project.vercel.app/",
     githubUrl: "#",
   },
   {
     title: "PATAS LINDA",
     description:
       "Plataforma web diseñada para la gestión creativa de imágenes. Permite a los usuarios subir, descargar, visualizar, editar y eliminar imágenes con facilidad. Su funcionalidad de edición incluye la posibilidad de superponer nuevas imágenes y agregar formas, brindando un espacio dinámico para la creatividad digital. Originalmente concebido para dibujos, Patas ofrece una experiencia intuitiva para artistas y entusiastas del diseño que buscan una herramienta versátil para organizar y transformar sus creaciones.",
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/patas.jpg",
     tags: [
       "Next",
       "Prisma",
@@ -37,25 +37,25 @@ const projects = [
       "Redux",
       "Tailwind",
     ],
-    liveUrl: "#",
+    liveUrl: "https://patas-linda.vercel.app/",
     githubUrl: "#",
   },
   {
     title: "SMART PAGO MÓVIL (Frontend)",
     description:
       "Interfaz web intuitiva y funcional diseñada para mejorar la experiencia de pago entre usuarios. Su diseño permite gestionar transacciones de forma eficiente, integrando opciones como la validación de datos, selección de banco destino y una interfaz optimizada para pagos móviles. La implementación de escaneo de QR facilita pagos rápidos y seguros, alineándose con los estándares modernos de accesibilidad y usabilidad. Este proyecto se enfoca en ofrecer una experiencia fluida y bien estructurada para los usuarios dentro del ecosistema de pagos digitales.",
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/smart-pago-movil.jpg",
     tags: ["HTML", "CSS", "Javascript"],
-    liveUrl: "#",
+    liveUrl: "https://smart-pago-movil.vercel.app/",
     githubUrl: "#",
   },
   {
     title: "C2 DEVELOPER GROUP",
     description:
       "Un equipo de desarrolladores y diseñadores que ofrece servicios especializados en el desarrollo de aplicaciones, sitios web y comercio electrónico, con un fuerte enfoque en el diseño, la funcionalidad y la seguridad. Su portafolio incluye testimonios de clientes satisfechos que destacan el éxito de tiendas en línea, sitios web de alta calidad y aplicaciones móviles impresionantes. Además, proporciona servicios de mantenimiento y soporte continuos para garantizar la operación segura y eficiente de los proyectos digitales en curso. Además, los usuarios pueden compartir los detalles de sus proyectos para recibir un servicio especializado que realce su presencia en línea, maximice la experiencia del usuario en todos los dispositivos y garantice un entorno digital seguro y confiable a largo plazo.",
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/c2.jpg",
     tags: ["Astro", "CSS", "Tailwind", "Framer Motion"],
-    liveUrl: "#",
+    liveUrl: "https://c2developergroup.vercel.app/",
     githubUrl: "#",
   },
 ];
@@ -73,45 +73,47 @@ const projects = [
   <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
     {
       projects.map((project, index) => (
-        <div class="flex flex-col p-6 gap-5 rounded-xl bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] backdrop-blur-md border border-blue-500/20 transition-all duration-300 ease-in-out hover:translate-y-[-5px] hover:border-blue-500/50 hover:shadow-[0px_10px_20px_rgba(59,130,246,0.1)]">
-          <div class="h-48 w-full">
+        <div class="overflow-hidden flex flex-col rounded-xl bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] backdrop-blur-md border border-blue-500/20 transition-all duration-300 ease-in-out hover:translate-y-[-5px] hover:border-blue-500/50 hover:shadow-[0px_10px_20px_rgba(59,130,246,0.1)]">
+          <div class="h-64 w-full">
             <img
               src={project.image}
               alt={project.title}
-              class="object-cover"
+              class="object-cover h-full w-full"
               loading={index <= 1 ? "eager" : "lazy"}
             />
           </div>
-          <div>
-            <h3 class="text-2xl text-blue-100 font-semibold">
-              {project.title}
-            </h3>
+          <div class="flex flex-col p-6 gap-5 h-full">
             <div>
-              <div class="flex flex-wrap gap-2 mt-2">
-                {project.tags.map((tag) => (
-                  <span class="px-2 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full">
-                    {tag}
-                  </span>
-                ))}
+              <h3 class="text-2xl text-blue-100 font-semibold">
+                {project.title}
+              </h3>
+              <div>
+                <div class="flex flex-wrap gap-2 mt-2">
+                  {project.tags.map((tag) => (
+                    <span class="px-2 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-          <div>
-            <p class="text-sm text-blue-200">{project.description}</p>
-          </div>
-          <div class="flex justify-between mt-auto">
-            <button class="border border-blue-700 text-blue-300 hover:bg-blue-900 py-2 px-4 rounded-lg font-medium">
-              <a href={project.githubUrl}>
-                <Github className="mr-2 h-4 w-4 inline-block" />
-                Code
-              </a>
-            </button>
-            <button class="border bg-blue-600 hover:bg-blue-500 py-2 px-4 rounded-lg font-medium">
-              <a href={project.liveUrl}>
-                <ExternalLink className="mr-2 h-4 w-4 inline-block" />
-                Live Demo
-              </a>
-            </button>
+            <div>
+              <p class="text-sm text-blue-200">{project.description}</p>
+            </div>
+            <div class="flex justify-between mt-auto">
+              <button class="border border-blue-700 text-blue-300 hover:bg-blue-900 py-2 px-4 rounded-lg font-medium">
+                <a href={project.githubUrl}>
+                  <Github className="mr-2 h-4 w-4 inline-block" />
+                  Code
+                </a>
+              </button>
+              <button class="border bg-blue-600 hover:bg-blue-500 py-2 px-4 rounded-lg font-medium">
+                <a href={project.liveUrl} target="_blank">
+                  <ExternalLink className="mr-2 h-4 w-4 inline-block" />
+                  Live Demo
+                </a>
+              </button>
+            </div>
           </div>
         </div>
       ))
