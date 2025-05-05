@@ -70,7 +70,7 @@ const projects = [
     </p>
   </div>
 
-  <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-6">
     {
       projects.map((project, index) => (
         <div class="overflow-hidden flex flex-col rounded-xl bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] backdrop-blur-md border border-blue-500/20 transition-all duration-300 ease-in-out hover:translate-y-[-5px] hover:border-blue-500/50 hover:shadow-[0px_10px_20px_rgba(59,130,246,0.1)]">
@@ -101,13 +101,13 @@ const projects = [
               <p class="text-sm text-blue-200">{project.description}</p>
             </div>
             <div class="flex justify-between mt-auto">
-              <button class="border border-blue-700 text-blue-300 hover:bg-blue-900 py-2 px-4 rounded-lg font-medium">
+              <button class="border border-blue-700 text-blue-300 transition duration-300 hover:bg-blue-900 py-2 px-4 rounded-lg font-medium">
                 <a href={project.githubUrl}>
                   <Github className="mr-2 h-4 w-4 inline-block" />
                   Code
                 </a>
               </button>
-              <button class="border bg-blue-600 hover:bg-blue-500 py-2 px-4 rounded-lg font-medium">
+              <button class="border bg-blue-600 transition duration-300 hover:bg-blue-500 py-2 px-4 rounded-lg font-medium">
                 <a href={project.liveUrl} target="_blank">
                   <ExternalLink className="mr-2 h-4 w-4 inline-block" />
                   Live Demo
