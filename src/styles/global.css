@@ -80,7 +80,7 @@
 .title {
   border-radius: 10px;
   padding: 5px 0px;
-  animation: increase-box-shadow 1.5s 3.3s ease-out;
+  animation: increase-box-shadow 1.5s 3.4s ease-out;
 }
 
 @keyframes fadeInHeader {

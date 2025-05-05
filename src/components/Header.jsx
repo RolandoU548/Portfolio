@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { AlignJustify, X } from "lucide-react";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,7 +55,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className="max-w-4xl mx-auto sticky top-0 z-50">
+      <header className="hidden lg:block max-w-4xl mx-auto sticky top-0 z-50">
         <nav className="p-0 pb-8 pt-6">
           <ul
             className={`font-medium flex justify-around rounded-xl p-3 transition-all duration-300 ${
@@ -78,6 +79,43 @@ export const Header = () => {
           </ul>
         </nav>
       </header>
+      <button
+        onClick={() => {
+          setIsMenuOpen(true);
+        }}
+        className="block lg:hidden fixed top-3 right-3 z-40 p-2 bg-[linear-gradient(145deg,#5e697b80,#5e698b33)] backdrop-blur-md rounded-full transition-all duration-300 hover:bg-[linear-gradient(145deg,#5e697bc0,#5e698b73)] cursor-pointer"
+      >
+        <AlignJustify className="w-8 h-8" />
+      </button>
+      <div
+        className={`lg:hidden flex flex-col gap-8 justify-center items-center fixed top-0 left-0 z-50 w-full h-[100dvh] bg-[linear-gradient(145deg,#060B5C90,#5e698b93)] backdrop-blur-lg transition duration-500 ease-out ${
+          isMenuOpen ? "" : "-translate-y-full"
+        }`}
+      >
+        <button
+          className="absolute cursor-pointer top-3 right-3 p-2 rounded-full border border-blue-500"
+          onClick={() => {
+            setIsMenuOpen(false);
+          }}
+        >
+          <X className=" w-8 h-8" />
+        </button>
+        {navLinks.map((navLink, index) => {
+          return (
+            <div
+              onClick={() => {
+                setIsMenuOpen(false);
+              }}
+              key={index}
+              className={`text-xl font-medium transition duration-300 hover:text-[#60a5fa] ${
+                activeSection === navLink.href ? "text-[#60a5fa]" : ""
+              }`}
+            >
+              <a href={navLink.href}>{navLink.name}</a>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 };
