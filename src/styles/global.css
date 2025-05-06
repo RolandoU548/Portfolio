@@ -126,6 +126,7 @@ main {
 
 .spinning-div {
   animation: fadeInHeader 1s ease-in 6.2s backwards, spin 8s linear infinite;
+  filter: blur(64px);
 }
 
 .contact-input:focus ~ .glow-effect {
