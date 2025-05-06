@@ -91,7 +91,7 @@ export const Header = () => {
         <AlignJustify className="w-8 h-8" />
       </button>
       <div
-        className={`md:hidden flex flex-col gap-8 justify-center items-center fixed top-0 left-0 z-50 w-full h-[100vh] bg-[linear-gradient(145deg,#060B5C90,#5e698b93)] backdrop-blur-lg transition duration-500 ease-out ${
+        className={`md:hidden flex flex-col gap-8 justify-center items-center fixed top-0 left-0 z-50 w-full h-[110vh] bg-[linear-gradient(145deg,#060B5C90,#5e698b93)] backdrop-blur-lg transition duration-500 ease-out ${
           isMenuOpen ? "" : "-translate-y-full"
         }`}
       >
