@@ -101,18 +101,22 @@ const projects = [
               <p class="text-sm text-blue-200">{project.description}</p>
             </div>
             <div class="flex justify-between mt-auto">
-              <button class="border border-blue-700 text-blue-300 transition duration-300 hover:bg-blue-900 py-2 px-4 rounded-lg font-medium">
-                <a href={project.githubUrl} target="_blank">
-                  <Github className="mr-2 h-4 w-4 inline-block" />
-                  Code
-                </a>
-              </button>
-              <button class="border bg-blue-600 transition duration-300 hover:bg-blue-500 py-2 px-4 rounded-lg font-medium">
-                <a href={project.liveUrl} target="_blank">
-                  <ExternalLink className="mr-2 h-4 w-4 inline-block" />
-                  Live Demo
-                </a>
-              </button>
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                class="border border-blue-700 text-blue-300 transition duration-300 hover:bg-blue-900 py-2 px-4 rounded-lg font-medium"
+              >
+                <Github className="mr-2 h-4 w-4 inline-block" />
+                Code
+              </a>
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                class="border bg-blue-600 transition duration-300 hover:bg-blue-500 py-2 px-4 rounded-lg font-medium"
+              >
+                <ExternalLink className="mr-2 h-4 w-4 inline-block" />
+                Live Demo
+              </a>
             </div>
           </div>
         </div>
