@@ -94,11 +94,16 @@ export const Header = () => {
               return (
                 <li
                   key={index}
-                  className={`relative transition duration-300 hover:text-blue-400 ${
+                  className={`relative ${
                     activeSection === navLink.href ? "text-blue-400" : ""
                   }`}
                 >
-                  <a href={navLink.href}>{navLink.name}</a>
+                  <a
+                    href={navLink.href}
+                    className="transition duration-300 hover:text-blue-400"
+                  >
+                    {navLink.name}
+                  </a>
                   <div
                     className={`absolute w-full h-0.5 -bottom-[8%] left-0 bg-blue-400 transition-all duration-300 origin-left ${
                       activeSection === navLink.href
@@ -139,15 +144,20 @@ export const Header = () => {
           {navLinks.map((navLink, index) => {
             return (
               <li
-                onClick={() => {
-                  setIsMenuOpen(false);
-                }}
                 key={index}
-                className={`relative text-xl font-medium transition duration-300 hover:text-blue-400 ${
+                className={`relative text-xl font-medium ${
                   activeSection === navLink.href ? "text-blue-400" : ""
                 }`}
               >
-                <a href={navLink.href}>{navLink.name}</a>
+                <a
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                  }}
+                  href={navLink.href}
+                  className="transition duration-300 hover:text-blue-400"
+                >
+                  {navLink.name}
+                </a>
                 <div
                   className={`absolute w-full h-0.5 -bottom-[8%] left-0 bg-blue-400 transition-all duration-300 origin-left ${
                     activeSection === navLink.href ? "scale-x-100" : "scale-x-0"
