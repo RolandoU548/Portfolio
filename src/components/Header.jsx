@@ -7,6 +7,7 @@ export const Header = () => {
   const [activeSection, setActiveSection] = useState("#home");
 
   useEffect(() => {
+    // Ver si hay scroll para aumentar la opacidad del navbar
     const handleScroll = () => {
       if (window.scrollY > 25) {
         setIsScrolled(true);
@@ -19,7 +20,11 @@ export const Header = () => {
 
     window.addEventListener("scroll", handleScroll);
 
-    const observerCallback = (entries) => {
+    // Obtener sections
+    const sections = document.querySelectorAll("section");
+
+    // Ver que sección esta observando el usuario
+    const observerActiveSessionCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveSection(`#${entry.target.id}`);
@@ -27,21 +32,41 @@ export const Header = () => {
       });
     };
 
-    const observerOptions = {
+    const observerActiveSessionOptions = {
       rootMargin: "-25% 0px -75% 0px",
     };
 
-    const sections = document.querySelectorAll("section");
-    const observer = new IntersectionObserver(
-      observerCallback,
-      observerOptions
+    const observerActiveSession = new IntersectionObserver(
+      observerActiveSessionCallback,
+      observerActiveSessionOptions
     );
 
-    sections.forEach((section) => observer.observe(section));
+    sections.forEach((section) => observerActiveSession.observe(section));
+
+    // Ver que sección se tiene que ejecutar su animación
+    const observerScrollAnimationCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(entry.target.dataset.animation);
+        }
+      });
+    };
+
+    const observerScrollAnimationOptions = {
+      rootMargin: "-40% 0px -60% 0px",
+    };
+
+    const observerScrollAnimation = new IntersectionObserver(
+      observerScrollAnimationCallback,
+      observerScrollAnimationOptions
+    );
+
+    sections.forEach((section) => observerScrollAnimation.observe(section));
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      observer.disconnect();
+      observerActiveSession.disconnect();
+      observerScrollAnimation.disconnect();
     };
   }, []);
 
