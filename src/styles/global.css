@@ -129,8 +129,11 @@ main {
   filter: blur(64px);
 }
 
+.glow-effect {
+  scale: 0 1;
+}
+
 .contact-input:focus ~ .glow-effect {
-  width: 100%;
-  left: 0;
-  opacity: 1;
+  transform-origin: left;
+  scale: 1 1;
 }

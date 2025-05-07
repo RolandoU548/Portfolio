@@ -28,7 +28,7 @@ export const Header = () => {
     };
 
     const observerOptions = {
-      rootMargin: "-30% 0px -70% 0px",
+      rootMargin: "-20% 0px -80% 0px",
     };
 
     const sections = document.querySelectorAll("section");
@@ -69,11 +69,18 @@ export const Header = () => {
               return (
                 <li
                   key={index}
-                  className={`transition duration-300 hover:text-[#60a5fa] ${
-                    activeSection === navLink.href ? "text-[#60a5fa]" : ""
+                  className={`relative transition duration-300 hover:text-blue-400 ${
+                    activeSection === navLink.href ? "text-blue-400" : ""
                   }`}
                 >
                   <a href={navLink.href}>{navLink.name}</a>
+                  <div
+                    className={`absolute w-full h-0.5 -bottom-[8%] left-0 bg-blue-400 transition-all duration-300 origin-left ${
+                      activeSection === navLink.href
+                        ? "scale-x-100"
+                        : "scale-x-0"
+                    }`}
+                  ></div>
                 </li>
               );
             })}
@@ -86,7 +93,7 @@ export const Header = () => {
         onClick={() => {
           setIsMenuOpen(true);
         }}
-        className="block md:hidden fixed top-3 right-3 z-40 p-2 bg-[linear-gradient(145deg,#5e697b80,#5e698b33)] backdrop-blur-md rounded-full transition-all duration-300 hover:bg-[linear-gradient(145deg,#5e697bc0,#5e698b73)] cursor-pointer"
+        className="block md:hidden fixed top-8 right-8 z-40 p-2 bg-[linear-gradient(145deg,#5e697b80,#5e698b33)] backdrop-blur-md rounded-full transition-all duration-300 hover:bg-[linear-gradient(145deg,#5e697bc0,#5e698b73)] cursor-pointer"
       >
         <AlignJustify className="w-8 h-8" />
       </button>
@@ -96,7 +103,7 @@ export const Header = () => {
         }`}
       >
         <button
-          className="absolute cursor-pointer top-3 right-3 p-2 rounded-full border border-blue-500"
+          className="absolute cursor-pointer top-8 right-8 p-2 rounded-full border border-blue-400"
           onClick={() => {
             setIsMenuOpen(false);
           }}
@@ -111,11 +118,16 @@ export const Header = () => {
                   setIsMenuOpen(false);
                 }}
                 key={index}
-                className={`text-xl font-medium transition duration-300 hover:text-[#60a5fa] ${
-                  activeSection === navLink.href ? "text-[#60a5fa]" : ""
+                className={`relative text-xl font-medium transition duration-300 hover:text-blue-400 ${
+                  activeSection === navLink.href ? "text-blue-400" : ""
                 }`}
               >
                 <a href={navLink.href}>{navLink.name}</a>
+                <div
+                  className={`absolute w-full h-0.5 -bottom-[8%] left-0 bg-blue-400 transition-all duration-300 origin-left ${
+                    activeSection === navLink.href ? "scale-x-100" : "scale-x-0"
+                  }`}
+                ></div>
               </li>
             );
           })}
