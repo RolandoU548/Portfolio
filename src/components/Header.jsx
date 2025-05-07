@@ -93,7 +93,7 @@ export const Header = () => {
         onClick={() => {
           setIsMenuOpen(true);
         }}
-        className="block md:hidden fixed top-8 right-8 z-40 p-2 bg-[linear-gradient(145deg,#5e697b80,#5e698b33)] backdrop-blur-md rounded-full transition-all duration-300 hover:bg-[linear-gradient(145deg,#5e697bc0,#5e698b73)] cursor-pointer"
+        className="block md:hidden fixed top-5 right-5 z-40 p-2 bg-[linear-gradient(145deg,#5e697b80,#5e698b33)] backdrop-blur-md rounded-full transition-all duration-300 hover:bg-[linear-gradient(145deg,#5e697bc0,#5e698b73)] cursor-pointer"
       >
         <AlignJustify className="w-8 h-8" />
       </button>
@@ -103,7 +103,7 @@ export const Header = () => {
         }`}
       >
         <button
-          className="absolute cursor-pointer top-8 right-8 p-2 rounded-full border border-blue-400"
+          className="absolute cursor-pointer top-5 right-5 p-2 rounded-full border border-blue-400"
           onClick={() => {
             setIsMenuOpen(false);
           }}
