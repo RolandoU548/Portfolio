@@ -44,16 +44,17 @@ export const Header = () => {
     sections.forEach((section) => observerActiveSession.observe(section));
 
     // Ver que sección se tiene que ejecutar su animación
-    const observerScrollAnimationCallback = (entries) => {
+    const observerScrollAnimationCallback = (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add(entry.target.dataset.animation);
+          observer.unobserve(entry.target);
         }
       });
     };
 
     const observerScrollAnimationOptions = {
-      rootMargin: "-65% 0px -35% 0px",
+      rootMargin: "-70% 0px -30% 0px",
     };
 
     const observerScrollAnimation = new IntersectionObserver(
