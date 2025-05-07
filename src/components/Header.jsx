@@ -53,7 +53,7 @@ export const Header = () => {
     };
 
     const observerScrollAnimationOptions = {
-      rootMargin: "-40% 0px -60% 0px",
+      rootMargin: "-65% 0px -35% 0px",
     };
 
     const observerScrollAnimation = new IntersectionObserver(
