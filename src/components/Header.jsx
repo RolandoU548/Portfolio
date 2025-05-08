@@ -129,12 +129,12 @@ export const Header = () => {
         <AlignJustify className="w-8 h-8" />
       </button>
       <div
-        className={`md:hidden block fixed top-0 left-0 z-50 w-full h-[110vh] bg-[linear-gradient(145deg,#060B5C90,#5e698b93)] backdrop-blur-lg transition duration-500 ease-out ${
+        className={`md:hidden block fixed top-0 left-0 z-50 w-full h-[110vh] bg-[linear-gradient(145deg,#060B5C70,transparent)] backdrop-blur-lg transition duration-500 ease-out ${
           isMenuOpen ? "" : "-translate-y-full"
         }`}
       >
         <button
-          className="absolute cursor-pointer top-3 right-3 p-2 rounded-full border border-blue-400"
+          className="absolute cursor-pointer top-3 right-3 p-2 rounded-full bg-[linear-gradient(145deg,#5e697b80,#5e698b33)] transition-all duration-300 hover:bg-[linear-gradient(145deg,#5e697bc0,#5e698b73)]"
           onClick={() => {
             setIsMenuOpen(false);
           }}
