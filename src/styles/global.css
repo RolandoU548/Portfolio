@@ -20,28 +20,25 @@
   height: 100dvh;
   top: 0;
   background-color: rgb(213, 235, 247);
+  transform: skew(-15deg) translateY(-100%);
   z-index: -20;
+  opacity: 0.5;
 }
 
 .background_line1 {
-  position: fixed;
   width: 5px;
   right: 25%;
-  transform: skew(-15deg) translateY(-100%);
   animation: fadeInLine 1.5s 1s forwards ease;
 }
 
 .background_line2 {
-  position: fixed;
   width: 2px;
   right: 10%;
-  transform: skew(-10deg) translateY(-100%);
   animation: fadeInLine 1.5s 1.6s forwards ease;
 }
 
 @keyframes fadeInLine {
   0% {
-    opacity: 0.3;
     filter: blur(0.5rem);
   }
   20% {
@@ -54,7 +51,6 @@
     filter: blur(0.8rem);
   }
   100% {
-    opacity: 0.6;
     filter: blur(0.3rem);
     transform: skew(-15deg) translateY(0);
   }
@@ -166,4 +162,9 @@ main {
 
 .visible-left {
   animation: slideFromLeft 1s ease forwards;
+}
+
+.contact-input:focus ~ .glow-effect {
+  transform-origin: left;
+  scale: 1 1;
 }
