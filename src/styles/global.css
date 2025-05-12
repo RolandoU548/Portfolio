@@ -75,7 +75,7 @@
 
 @keyframes glowText {
   100% {
-    text-shadow: 0 0 20px rgba(0, 238, 255, 0.7);
+    text-shadow: 0 0 20px rgba(0, 183, 255, 0.7);
   }
 }
 
