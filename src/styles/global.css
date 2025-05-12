@@ -71,6 +71,9 @@
   50% {
     box-shadow: 0px 0px 100px white;
   }
+}
+
+@keyframes increase-text-shadow {
   100% {
     text-shadow: 0 0 20px rgba(0, 238, 255, 0.7);
   }
@@ -79,7 +82,8 @@
 .title {
   border-radius: 10px;
   padding: 5px 0px;
-  animation: increase-box-shadow 1.5s 3.4s linear forwards;
+  animation: increase-box-shadow 1.5s 3.4s ease-out,
+    increase-text-shadow 1s 6.5s linear forwards;
 }
 
 @keyframes fadeInHeader {
