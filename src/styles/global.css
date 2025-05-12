@@ -69,10 +69,10 @@
 
 @keyframes increase-box-shadow {
   50% {
-    box-shadow: 0px 0px 30px 5px white;
+    text-shadow: 0 0 50px rgb(255, 255, 255);
   }
   100% {
-    text-shadow: 0 0 20px rgb(0, 238, 255);
+    text-shadow: 0 0 20px rgba(0, 238, 255, 0.8);
   }
 }
 
