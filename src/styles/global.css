@@ -28,16 +28,16 @@
 .background_line1 {
   width: 5px;
   right: 25%;
-  animation: fadeInLine 1.5s 1s forwards ease;
+  animation: slideInLine 1.5s 1s forwards ease;
 }
 
 .background_line2 {
   width: 2px;
   right: 10%;
-  animation: fadeInLine 1.5s 1.6s forwards ease;
+  animation: slideInLine 1.5s 1.6s forwards ease;
 }
 
-@keyframes fadeInLine {
+@keyframes slideInLine {
   0% {
     filter: blur(0.5rem);
   }
@@ -56,7 +56,7 @@
   }
 }
 
-@keyframes fadeIn {
+@keyframes fadeInContent {
   0% {
     opacity: 0.3;
     filter: blur(0.7rem);
@@ -67,13 +67,13 @@
   }
 }
 
-@keyframes increase-box-shadow {
+@keyframes pulseBoxShadow {
   50% {
     box-shadow: 0px 0px 100px white;
   }
 }
 
-@keyframes increase-text-shadow {
+@keyframes glowText {
   100% {
     text-shadow: 0 0 20px rgba(0, 238, 255, 0.7);
   }
@@ -82,8 +82,7 @@
 .title {
   border-radius: 10px;
   padding: 5px 0px;
-  animation: increase-box-shadow 1.5s 3.4s ease-out,
-    increase-text-shadow 1s 6.5s linear forwards;
+  animation: pulseBoxShadow 1.5s 3.4s ease-out, glowText 1s 6.5s linear forwards;
 }
 
 @keyframes fadeInHeader {
@@ -93,7 +92,7 @@
   }
 }
 
-@keyframes aparecer-sombra {
+@keyframes shadowAppear {
   0% {
     box-shadow: none;
   }
@@ -110,7 +109,7 @@ header {
 }
 
 header > nav > ul {
-  animation: aparecer-sombra 1s ease-out 6.5s forwards;
+  animation: shadowAppear 1s ease-out 6.5s forwards;
 }
 
 body {
@@ -118,17 +117,18 @@ body {
 }
 
 main {
-  animation: fadeIn 1.5s ease-in backwards;
+  animation: fadeInContent 1.5s ease-in backwards;
 }
 
-@keyframes spin {
+@keyframes spinInfinite {
   to {
     transform: rotate(360deg);
   }
 }
 
 .spinning-div {
-  animation: fadeInHeader 1s ease-in 6.2s backwards, spin 8s linear infinite;
+  animation: fadeInHeader 1s ease-in 6.2s backwards,
+    spinInfinite 8s linear infinite;
   filter: blur(64px);
 }
 
@@ -141,7 +141,7 @@ main {
   scale: 1 1;
 }
 
-@keyframes slideFromRight {
+@keyframes slideInFromRight {
   from {
     transform: translateX(100%);
     opacity: 0;
@@ -152,7 +152,7 @@ main {
   }
 }
 
-@keyframes slideFromLeft {
+@keyframes slideInFromLeft {
   from {
     transform: translateX(-100%);
     opacity: 0;
@@ -164,11 +164,11 @@ main {
 }
 
 .visible {
-  animation: slideFromRight 1s ease forwards;
+  animation: slideInFromRight 1s ease forwards;
 }
 
 .visible-left {
-  animation: slideFromLeft 1s ease forwards;
+  animation: slideInFromLeft 1s ease forwards;
 }
 
 .contact-input:focus ~ .glow-effect {
