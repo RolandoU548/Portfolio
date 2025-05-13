@@ -1,6 +1,8 @@
 import { CodeXml } from "lucide-react";
+import { useState } from "react";
 
 export default function Skills() {
+  const [activeTab, setActiveTab] = useState("Frontend");
   const skills = [
     {
       name: "HTML5",
@@ -14,6 +16,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Frontend",
+      href: "https://developer.mozilla.org/es/docs/Glossary/HTML5",
     },
     {
       name: "CSS3",
@@ -27,6 +30,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Frontend",
+      href: "https://developer.mozilla.org/es/docs/Web/CSS",
     },
     {
       name: "JavaScript",
@@ -40,6 +44,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Frontend",
+      href: "https://developer.mozilla.org/es/docs/Web/JavaScript",
     },
     {
       name: "React",
@@ -53,6 +58,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Frontend",
+      href: "https://es.react.dev/",
     },
     {
       name: "Node.js",
@@ -66,6 +72,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Backend",
+      href: "https://nodejs.org",
     },
     {
       name: "MongoDB",
@@ -79,6 +86,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Backend",
+      href: "https://www.mongodb.com/",
     },
     {
       name: "Git",
@@ -92,6 +100,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Tools",
+      href: "https://git-scm.com/",
     },
     {
       name: "Responsive Design",
@@ -105,6 +114,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Frontend",
+      href: "https://developer.mozilla.org/docs/Learn_web_development/Core/CSS_layout/Responsive_Design",
     },
     {
       name: "RESTful APIs",
@@ -118,6 +128,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Backend",
+      href: "https://aws.amazon.com/what-is/restful-api/",
     },
     {
       name: "UI/UX Design",
@@ -130,7 +141,8 @@ export default function Skills() {
           <path d="M12 2c5.522 0 10 4.478 10 10s-4.478 10-10 10S2 17.522 2 12 6.478 2 12 2zm-1.987 13.5H9.459l-2.75-4.5v4.5H6v-7.5h.709l2.75 4.5V8h.709l-.155 7.5zm4.5-3.25c.414 0 .75.336.75.75v2.5h.741v-2.5c0-.414.336-.75.75-.75s.75.336.75.75v2.5h.741v-2.5c0-.414.336-.75.75-.75s.75.336.75.75v2.5c0 .414-.336.75-.75.75H14.5c-.414 0-.75-.336-.75-.75v-2.5c0-.414.336-.75.75-.75zm-.75-3.5V8h3v.75h-3z" />
         </svg>
       ),
-      category: "Design",
+      category: "Frontend",
+      href: "https://en.wikipedia.org/wiki/User_interface_design",
     },
     {
       name: "TypeScript",
@@ -144,6 +156,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Frontend",
+      href: "https://www.typescriptlang.org/",
     },
     {
       name: "Docker",
@@ -156,7 +169,8 @@ export default function Skills() {
           <path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.185-.186h-2.12a.186.186 0 00-.185.185v1.888c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288z" />
         </svg>
       ),
-      category: "DevOps",
+      category: "Tools",
+      href: "https://www.docker.com/",
     },
     {
       name: "Tailwind",
@@ -170,6 +184,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Frontend",
+      href: "https://tailwindcss.com/",
     },
     {
       name: "Express",
@@ -183,9 +198,10 @@ export default function Skills() {
         </svg>
       ),
       category: "Backend",
+      href: "https://expressjs.com/",
     },
     {
-      name: "VsCode",
+      name: "VS Code",
       icon: (
         <svg
           viewBox="0 0 24 24"
@@ -196,6 +212,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Tools",
+      href: "https://code.visualstudio.com/",
     },
     {
       name: "SQL",
@@ -209,6 +226,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Backend",
+      href: "https://es.wikipedia.org/wiki/SQL",
     },
     {
       name: "Firebase",
@@ -222,6 +240,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Backend",
+      href: "https://firebase.google.com/",
     },
     {
       name: "Supabase",
@@ -235,6 +254,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Backend",
+      href: "https://supabase.com/",
     },
     {
       name: "Python",
@@ -248,6 +268,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Backend",
+      href: "https://www.python.org/",
     },
     {
       name: "Github",
@@ -261,9 +282,10 @@ export default function Skills() {
         </svg>
       ),
       category: "Tools",
+      href: "https://github.com/",
     },
     {
-      name: "Next",
+      name: "Next.js",
       icon: (
         <svg
           viewBox="0 0 24 24"
@@ -274,6 +296,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Frontend",
+      href: "https://nextjs.org/",
     },
     {
       name: "Redux",
@@ -287,6 +310,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Frontend",
+      href: "https://redux.js.org/",
     },
     {
       name: "Figma",
@@ -299,7 +323,8 @@ export default function Skills() {
           <path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z" />
         </svg>
       ),
-      category: "Design",
+      category: "Frontend",
+      href: "https://www.figma.com/",
     },
     {
       name: "Jest",
@@ -313,6 +338,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Frontend",
+      href: "https://jestjs.io/",
     },
     {
       name: "Bootstrap",
@@ -326,6 +352,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Frontend",
+      href: "https://getbootstrap.com/",
     },
     {
       name: "Postman",
@@ -339,6 +366,7 @@ export default function Skills() {
         </svg>
       ),
       category: "Backend",
+      href: "https://www.postman.com/",
     },
   ];
 
@@ -348,30 +376,66 @@ export default function Skills() {
       className="scroll-mt-5 md:scroll-mt-20 opacity-0"
       data-animation="visible"
     >
-      <div className="flex flex-col items-center text-center space-y-4">
-        <h2 className="text-3xl font-bold tracking-tighter gradient-text">
-          Habilidades
-          <CodeXml className="inline size-7 text-blue-400 ml-2 mb-1" />
-        </h2>
-        <p className="text-blue-100 max-w-[700px]">
-          He trabajado con diversas tecnologías y herramientas a lo largo de mi
-          carrera. Estas son algunas de mis habilidades clave.
-        </p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full">
-          {skills.map((skill, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center p-4 rounded-lg bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] backdrop-blur-md border border-blue-500/20 transition-all duration-300 ease-in-out hover:translate-y-[-5px] hover:border-blue-500/50 hover:shadow-[0px_10px_20px_rgba(59,130,246,0.2)]"
+      <div className="flex flex-col items-center text-center space-y-6">
+        <div className="flex flex-col gap-4">
+          <h2 className="text-3xl font-bold tracking-tighter gradient-text">
+            Habilidades
+            <CodeXml className="inline size-7 text-blue-400 ml-2 mb-1" />
+          </h2>
+          <p className="text-blue-100 max-w-[700px]">
+            He trabajado con diversas tecnologías y herramientas a lo largo de
+            mi experiencia. Estas son algunas de mis habilidades clave.
+          </p>
+        </div>
+        <div className="w-full">
+          <div className="p-1 mx-auto w-full lg:w-4/ flex border border-blue-500/60 rounded-xl gap-5 *:flex-1 *:rounded-xl *:p-2 *:transition-all *:duration-300">
+            <button
+              className={activeTab === "Frontend" ? " bg-blue-600" : ""}
+              onClick={() => {
+                setActiveTab("Frontend");
+              }}
             >
-              <div className="p-2 rounded-full bg-blue-500/20 mb-3">
-                {skill.icon}
-              </div>
-              <h3 className="font-medium text-sm text-blue-100">
-                {skill.name}
-              </h3>
-              <p className="text-xs text-blue-300">{skill.category}</p>
-            </div>
-          ))}
+              Frontend
+            </button>
+            <button
+              className={activeTab === "Backend" ? " bg-blue-600" : ""}
+              onClick={() => {
+                setActiveTab("Backend");
+              }}
+            >
+              Backend
+            </button>
+            <button
+              className={activeTab === "Tools" ? " bg-blue-600" : ""}
+              onClick={() => {
+                setActiveTab("Tools");
+              }}
+            >
+              Tools
+            </button>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full">
+          {skills
+            .filter((skill) => {
+              return skill.category === activeTab;
+            })
+            .map((skill, index) => (
+              <a
+                key={index}
+                href={skill.href}
+                target="_blank"
+                className="flex flex-col items-center p-4 rounded-lg bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] backdrop-blur-md border border-blue-500/20 transition-all duration-300 ease-in-out hover:translate-y-[-5px] hover:border-blue-500/50 hover:shadow-[0px_10px_20px_rgba(59,130,246,0.2)]"
+              >
+                <div className="p-2 rounded-full bg-blue-500/20 mb-3">
+                  {skill.icon}
+                </div>
+                <h3 className="font-medium text-sm text-blue-100">
+                  {skill.name}
+                </h3>
+                <p className="text-xs text-blue-300">{skill.category}</p>
+              </a>
+            ))}
         </div>
       </div>
     </section>
