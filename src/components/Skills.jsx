@@ -1,3 +1,5 @@
+import { CodeXml } from "lucide-react";
+
 export default function Skills() {
   const skills = [
     {
@@ -349,6 +351,7 @@ export default function Skills() {
       <div className="flex flex-col items-center text-center space-y-4">
         <h2 className="text-3xl font-bold tracking-tighter gradient-text">
           Habilidades
+          <CodeXml className="inline size-7 text-blue-400 ml-2 mb-1" />
         </h2>
         <p className="text-blue-100 max-w-[700px]">
           He trabajado con diversas tecnologías y herramientas a lo largo de mi

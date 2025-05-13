@@ -1,18 +1,29 @@
 ---
-import { Github, Linkedin, Mail, User, AtSign, Pencil } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  User,
+  AtSign,
+  Pencil,
+  MessagesSquare,
+} from "lucide-react";
 ---
 
 <section
   id="contact"
-  class="scroll-mt-5 md:scroll-mt-20 flex flex-col items-center space-y-4 opacity-0"
+  class="scroll-mt-5 md:scroll-mt-20 flex flex-col items-center gap-6 opacity-0"
   data-animation="visible-left"
 >
-  <h2 class="text-3xl font-bold tracking-tighter text-center gradient-text">
-    Contacto
-  </h2>
-  <p class="text-blue-100 max-w-[700px] text-center">
-    No dudes en contactarme para cualquier proyecto o colaboración.
-  </p>
+  <div class="flex flex-col gap-4">
+    <h2 class="text-3xl font-bold tracking-tighter text-center gradient-text">
+      Contacto
+      <MessagesSquare className="inline size-7 text-blue-400 ml-1" />
+    </h2>
+    <p class="text-blue-100 max-w-[700px] text-center">
+      No dudes en contactarme para cualquier proyecto o colaboración.
+    </p>
+  </div>
   <div class="flex justify-evenly w-full">
     <a
       href="https://github.com/RolandoU548"
@@ -144,36 +155,36 @@ import { Github, Linkedin, Mail, User, AtSign, Pencil } from "lucide-react";
     </div>
     <button
       class="relative col-span-full cursor-pointer bg-[linear-gradient(90deg,#014faf,#0095be)] py-2 px-4 rounded-md font-semibold overflow-hidden transition-all duration-300 ease-out tracking-wider hover:-translate-0.5 hover:shadow-[0_4px_15px_rgba(0,_114,_255,_0.4)] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-500 before:ease-in-out hover:before:left-full"
-      type="submit">Enviar</button
+      >Enviar Mensaje</button
     >
   </form>
+
+  <script>
+    document.getElementById("mail-bubble")?.addEventListener("click", () => {
+      navigator.clipboard
+        .writeText("rolandou548@gmail.com")
+        .then(() => alert("Correo copiado al portapapeles"))
+        .catch((err) => console.error("Error al copiar", err));
+    });
+
+    document.querySelector("form")?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target as HTMLFormElement);
+      const data = Object.fromEntries(
+        Array.from(formData.entries()).map(([key, value]) => [
+          key,
+          value.toString(),
+        ])
+      );
+      console.log(data);
+      const mailtoLink = `mailto:rolandou548@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(`Nombre: ${data.name}%0AEmail: ${data.email}%0A%0AMensaje:%0A${data.message}`)}`;
+
+      const tempLink = document.createElement("a");
+      tempLink.href = mailtoLink;
+      tempLink.style.display = "none";
+      document.body.appendChild(tempLink);
+      tempLink.click();
+      document.body.removeChild(tempLink);
+    });
+  </script>
 </section>
-
-<script>
-  document.getElementById("mail-bubble")?.addEventListener("click", () => {
-    navigator.clipboard
-      .writeText("rolandou548@gmail.com")
-      .then(() => alert("Correo copiado al portapapeles"))
-      .catch((err) => console.error("Error al copiar", err));
-  });
-
-  document.querySelector("form")?.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
-    const data = Object.fromEntries(
-      Array.from(formData.entries()).map(([key, value]) => [
-        key,
-        value.toString(),
-      ])
-    );
-    console.log(data);
-    const mailtoLink = `mailto:rolandou548@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(`Nombre: ${data.name}%0AEmail: ${data.email}%0A%0AMensaje:%0A${data.message}`)}`;
-
-    const tempLink = document.createElement("a");
-    tempLink.href = mailtoLink;
-    tempLink.style.display = "none";
-    document.body.appendChild(tempLink);
-    tempLink.click();
-    document.body.removeChild(tempLink);
-  });
-</script>
