@@ -82,7 +82,7 @@ export const Header = () => {
   return (
     <>
       {/* Desktop */}
-      <header className="hidden md:block max-w-4xl mx-auto sticky top-0 z-50">
+      <header className="navbar hidden md:block max-w-4xl mx-auto sticky top-0 z-50">
         <nav className="p-0 pb-8 pt-6">
           <ul
             className={`font-medium flex justify-around rounded-xl p-3 transition-all duration-300 ${

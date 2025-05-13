@@ -104,11 +104,11 @@
   }
 }
 
-header {
+header.navbar {
   animation: fadeInHeader 1s ease-in 5s backwards;
 }
 
-header > nav > ul {
+header.navbar > nav > ul {
   animation: shadowAppear 1s ease-out 6.5s forwards;
 }
 
@@ -116,7 +116,7 @@ body {
   overflow-x: hidden;
 }
 
-main {
+.main-content {
   animation: fadeInContent 1.5s ease-in backwards;
 }
 
