@@ -21,7 +21,7 @@ export const Header = () => {
     window.addEventListener("scroll", handleScroll);
 
     // Obtener sections
-    const sections = document.querySelectorAll("section");
+    const sections = document.querySelectorAll(".project-section");
 
     // Ver que sección esta observando el usuario
     const observerActiveSessionCallback = (entries) => {
