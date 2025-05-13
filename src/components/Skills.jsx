@@ -388,31 +388,20 @@ export default function Skills() {
           </p>
         </div>
         <div className="w-full">
-          <div className="p-1 mx-auto w-full lg:w-4/ flex border border-blue-500/60 rounded-xl gap-5 *:flex-1 *:rounded-xl *:p-2 *:transition-all *:duration-300">
-            <button
-              className={activeTab === "Frontend" ? " bg-blue-600" : ""}
-              onClick={() => {
-                setActiveTab("Frontend");
-              }}
-            >
-              Frontend
-            </button>
-            <button
-              className={activeTab === "Backend" ? " bg-blue-600" : ""}
-              onClick={() => {
-                setActiveTab("Backend");
-              }}
-            >
-              Backend
-            </button>
-            <button
-              className={activeTab === "Tools" ? " bg-blue-600" : ""}
-              onClick={() => {
-                setActiveTab("Tools");
-              }}
-            >
-              Tools
-            </button>
+          <div className="p-1.5 mx-auto w-fit grid grid-cols-3 bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] rounded-full gap-2">
+            {["Frontend", "Backend", "Tools"].map((tab) => (
+              <button
+                key={tab}
+                className={`rounded-full py-2 px-3 min-[480px]:px-8 sm:px-16 transition-all duration-300 cursor-pointer hover:-translate-y-0.5 hover:opacity-100 text-center ${
+                  activeTab === tab
+                    ? "bg-linear-to-r from-blue-700 to-blue-500"
+                    : "opacity-75"
+                }`}
+                onClick={() => setActiveTab(tab)}
+              >
+                {tab}
+              </button>
+            ))}
           </div>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full">
