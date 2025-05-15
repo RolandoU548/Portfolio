@@ -1,64 +1,10 @@
 ---
+import { getCollection, render } from "astro:content";
 import { ExternalLink, Github, PanelsTopLeft } from "lucide-react";
 
-const projects = [
-  {
-    title: "SERO PROJECT",
-    description:
-      "Proyecto de desarrollo web integral con un equipo de 4 desarrolladores. Diseñamos y desarrollamos una aplicación web diseñada para emprendedores y empresas, que ofrece una plataforma integral para la planificación y optimización de recursos. Los usuarios pueden iniciar sesión, crear una cuenta, gestionar una base de datos, completar formularios y registrar clientes y pagos. Esta solución integral garantiza que las empresas optimicen sus procesos, ahorrando tiempo y dinero, y mejorando eficiencia operativa.",
-    image: "/sero.jpg",
-    tags: [
-      "React",
-      "Node.js",
-      "MongoDB",
-      "Express",
-      "Framer Motion",
-      "i18-next",
-      "Handsontable",
-      "Tailwind",
-      "SASS",
-      "React Hook Form",
-    ],
-    liveUrl: "https://sero-project.vercel.app/",
-    githubUrl: "https://github.com/RolandoU548/SERO-PROJECT-REACT",
-  },
-  {
-    title: "PATAS LINDA",
-    description:
-      "Plataforma web diseñada para la gestión creativa de imágenes. Permite a los usuarios subir, descargar, visualizar, editar y eliminar imágenes con facilidad. Su funcionalidad de edición incluye la posibilidad de superponer nuevas imágenes y agregar formas, brindando un espacio dinámico para la creatividad digital. Originalmente concebido para dibujos, Patas ofrece una experiencia intuitiva para artistas y entusiastas del diseño que buscan una herramienta versátil para organizar y transformar sus creaciones.",
-    image: "/patas.jpg",
-    tags: [
-      "Next",
-      "Prisma",
-      "Typescript",
-      "Firebase",
-      "Fabric",
-      "Shadcn",
-      "Redux",
-      "Tailwind",
-    ],
-    liveUrl: "https://patas-linda.vercel.app/",
-    githubUrl: "https://github.com/RolandoU548/Patas",
-  },
-  {
-    title: "SMART PAGO MÓVIL (Frontend)",
-    description:
-      "Interfaz web intuitiva y funcional diseñada para mejorar la experiencia de pago entre usuarios. Su diseño permite gestionar transacciones de forma eficiente, integrando opciones como la validación de datos, selección de banco destino y una interfaz optimizada para pagos móviles. La implementación de escaneo de QR facilita pagos rápidos y seguros, alineándose con los estándares modernos de accesibilidad y usabilidad. Este proyecto se enfoca en ofrecer una experiencia fluida y bien estructurada para los usuarios dentro del ecosistema de pagos digitales.",
-    image: "/smart-pago-movil.jpg",
-    tags: ["HTML", "CSS", "Javascript"],
-    liveUrl: "https://smart-pago-movil.vercel.app/",
-    githubUrl: "https://github.com/RolandoU548/smart-pago-movil",
-  },
-  {
-    title: "C2 DEVELOPER GROUP",
-    description:
-      "Un equipo de desarrolladores y diseñadores que ofrece servicios especializados en el desarrollo de aplicaciones, sitios web y comercio electrónico, con un fuerte enfoque en el diseño, la funcionalidad y la seguridad. Su portafolio incluye testimonios de clientes satisfechos que destacan el éxito de tiendas en línea, sitios web de alta calidad y aplicaciones móviles impresionantes. Además, proporciona servicios de mantenimiento y soporte continuos para garantizar la operación segura y eficiente de los proyectos digitales en curso. Además, los usuarios pueden compartir los detalles de sus proyectos para recibir un servicio especializado que realce su presencia en línea, maximice la experiencia del usuario en todos los dispositivos y garantice un entorno digital seguro y confiable a largo plazo.",
-    image: "/c2.jpg",
-    tags: ["Astro", "CSS", "Tailwind", "Framer Motion"],
-    liveUrl: "https://c2developergroup.vercel.app/",
-    githubUrl: "https://github.com/RolandoU548/c2developergroup",
-  },
-];
+const projects = (await getCollection("projects")).sort(
+  (a, b) => a.data.order - b.data.order
+);
 ---
 
 <section
@@ -83,64 +29,66 @@ const projects = [
     aria-label="Lista de proyectos"
   >
     {
-      projects.map((project, index) => (
-        <li>
-          <article class="overflow-hidden flex flex-col rounded-xl bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] backdrop-blur-md border border-blue-500/20 transition-all duration-300 ease-in-out hover:translate-y-[-5px] hover:border-blue-500/50 hover:shadow-[0px_10px_20px_rgba(59,130,246,0.1)] h-full">
-            <figure class="h-64 w-full">
-              <img
-                src={project.image}
-                alt={project.title}
-                class="object-cover h-full w-full"
-                loading={index <= 1 ? "eager" : "lazy"}
-              />
-            </figure>
-            <div class="flex flex-col pt-3 p-6 gap-5 h-full">
-              <header>
-                <h3 class="text-2xl text-blue-100 font-semibold">
-                  {project.title}
-                </h3>
-                <ul
-                  class="flex flex-wrap gap-2 mt-2"
-                  aria-label="Tecnologías usadas"
-                >
-                  {project.tags.map((tag) => (
-                    <li>
-                      <span class="px-2 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full">
-                        {tag}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </header>
-              <section>
-                <p class="text-sm text-blue-200">{project.description}</p>
-              </section>
-              <footer class="flex justify-between mt-auto gap-2">
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="border border-blue-700 text-blue-300 transition duration-300 hover:bg-blue-900 py-2 px-4 rounded-lg font-medium flex items-center gap-2"
-                  aria-label={`Código fuente de ${project.title}`}
-                >
-                  <Github className="h-4 w-4" />
-                  <span>Code</span>
-                </a>
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="border bg-blue-600 transition duration-300 hover:bg-blue-500 py-2 px-4 rounded-lg font-medium flex items-center gap-2"
-                  aria-label={`Demo en vivo de ${project.title}`}
-                >
-                  <ExternalLink className="h-4 w-4" />
-                  <span>Live Demo</span>
-                </a>
-              </footer>
-            </div>
-          </article>
-        </li>
-      ))
+      projects.map(async (project) => {
+        const { data } = project;
+        const { title, image, tags, githubUrl, liveUrl } = data;
+        const { Content } = await render(project);
+        return (
+          <li>
+            <article class="overflow-hidden flex flex-col rounded-xl bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] backdrop-blur-md border border-blue-500/20 transition-all duration-300 ease-in-out hover:translate-y-[-5px] hover:border-blue-500/50 hover:shadow-[0px_10px_20px_rgba(59,130,246,0.1)] h-full">
+              <figure class="h-64 w-full">
+                <img
+                  src={image}
+                  alt={title}
+                  class="object-cover h-full w-full"
+                />
+              </figure>
+              <div class="flex flex-col pt-3 p-6 gap-5 h-full">
+                <header>
+                  <h3 class="text-2xl text-blue-100 font-semibold">{title}</h3>
+                  <ul
+                    class="flex flex-wrap gap-2 mt-2"
+                    aria-label="Tecnologías usadas"
+                  >
+                    {tags.map((tag) => (
+                      <li>
+                        <span class="px-2 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full">
+                          {tag}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </header>
+                <section class="prose text-blue-200 text-sm">
+                  <Content />
+                </section>
+                <footer class="flex justify-between mt-auto gap-2">
+                  <a
+                    href={githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="border border-blue-700 text-blue-300 transition duration-300 hover:bg-blue-900 py-2 px-4 rounded-lg font-medium flex items-center gap-2"
+                    aria-label={`Código fuente de ${title}`}
+                  >
+                    <Github className="h-4 w-4" />
+                    <span>Code</span>
+                  </a>
+                  <a
+                    href={liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="border bg-blue-600 transition duration-300 hover:bg-blue-500 py-2 px-4 rounded-lg font-medium flex items-center gap-2"
+                    aria-label={`Demo en vivo de ${title}`}
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    <span>Live Demo</span>
+                  </a>
+                </footer>
+              </div>
+            </article>
+          </li>
+        );
+      })
     }
   </ul>
 </section>
