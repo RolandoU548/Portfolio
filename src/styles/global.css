@@ -14,81 +14,18 @@
   -webkit-text-fill-color: transparent;
 }
 
-.background_line1,
-.background_line2 {
-  position: fixed;
-  height: 100dvh;
-  top: 0;
-  background-color: rgb(213, 235, 247);
-  transform: skew(-15deg) translateY(-100%);
-  z-index: -20;
-  opacity: 0.5;
-}
-
-.background_line1 {
-  width: 5px;
-  right: 25%;
-  animation: slideInLine 1.5s 1s forwards ease;
-}
-
-.background_line2 {
-  width: 2px;
-  right: 10%;
-  animation: slideInLine 1.5s 1.6s forwards ease;
-}
-
-@keyframes slideInLine {
-  0% {
-    filter: blur(0.5rem);
-  }
-  20% {
-    transform: skew(-15deg) translateY(0);
-  }
-  40% {
-    filter: blur(0.5rem);
-  }
-  70% {
-    filter: blur(0.8rem);
-  }
-  100% {
-    filter: blur(0.3rem);
-    transform: skew(-15deg) translateY(0);
-  }
-}
-
-@keyframes fadeInContent {
-  0% {
-    opacity: 0.3;
-    filter: blur(0.7rem);
-  }
-  60% {
-    opacity: 1;
-    filter: blur(0);
-  }
-}
-
-@keyframes pulseBoxShadow {
-  50% {
-    box-shadow: 0px 0px 100px white;
-  }
-}
-
-@keyframes glowText {
-  100% {
-    text-shadow: 0 0 20px rgba(0, 183, 255, 0.7);
-  }
-}
-
-.title {
-  border-radius: 10px;
-  padding: 5px 0px;
-  animation: pulseBoxShadow 1.5s 3.4s ease-out, glowText 1s 6.5s linear forwards;
+header.navbar {
+  animation: fadeInHeader 1s ease-in 5s backwards;
 }
 
 @keyframes fadeInHeader {
   from {
     opacity: 0;
   }
+}
+
+header.navbar > nav > ul {
+  animation: shadowAppear 1s ease-out 6.5s forwards;
 }
 
 @keyframes shadowAppear {
@@ -104,41 +41,19 @@
   }
 }
 
-header.navbar {
-  animation: fadeInHeader 1s ease-in 5s backwards;
-}
-
-header.navbar > nav > ul {
-  animation: shadowAppear 1s ease-out 6.5s forwards;
-}
-
 body {
   overflow-x: hidden;
 }
 
 .main-content {
-  animation: fadeInContent 1.5s ease-in backwards;
+  animation: fadeInContent 800ms ease-in;
 }
 
-@keyframes spinInfinite {
-  to {
-    transform: rotate(360deg);
+@keyframes fadeInContent {
+  0% {
+    opacity: 0.3;
+    filter: blur(0.7rem);
   }
-}
-
-.spinning-div {
-  animation: fadeInHeader 1s ease-in 6.2s backwards,
-    spinInfinite 8s linear infinite;
-  filter: blur(64px);
-}
-
-.glow-effect {
-  scale: 0 1;
-}
-
-.contact-input:focus ~ .glow-effect {
-  transform-origin: left;
-  scale: 1 1;
 }
 
 @keyframes slideInFromRight {
@@ -169,9 +84,4 @@ body {
 
 .visible-left {
   animation: slideInFromLeft 1s ease forwards;
-}
-
-.contact-input:focus ~ .glow-effect {
-  transform-origin: left;
-  scale: 1 1;
 }

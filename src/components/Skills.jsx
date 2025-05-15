@@ -2,7 +2,7 @@ import { CodeXml } from "lucide-react";
 import { useState } from "react";
 
 export default function Skills() {
-  const [activeTab, setActiveTab] = useState("Frontend");
+  const [activeTab, setActiveTab] = useState({ tab: "Frontend", index: 0 });
   const skills = [
     {
       name: "HTML5",
@@ -388,16 +388,20 @@ export default function Skills() {
           </p>
         </div>
         <div className="w-full">
-          <div className="p-1.5 mx-auto w-fit grid grid-cols-3 bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] rounded-full gap-2">
-            {["Frontend", "Backend", "Tools"].map((tab) => (
+          <div className="p-1.5 mx-auto w-fit grid grid-cols-3 bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] rounded-full">
+            <div
+              className="absolute rounded-full h-10 w-20 min-[480px]:w-32 sm:w-48 transition-all duration-300 bg-linear-to-r from-blue-700 to-blue-500"
+              style={{
+                transform: `translateX(${activeTab.index * 100}%)`,
+              }}
+            ></div>
+            {["Frontend", "Backend", "Tools"].map((tab, index) => (
               <button
                 key={tab}
-                className={`rounded-full py-2 px-3 min-[480px]:px-8 sm:px-16 transition-all duration-300 cursor-pointer hover:-translate-y-0.5 hover:opacity-100 text-center ${
-                  activeTab === tab
-                    ? "bg-linear-to-r from-blue-700 to-blue-500"
-                    : "opacity-75"
+                className={`z-10 rounded-full h-10 w-20 min-[480px]:w-32 sm:w-48 transition-all duration-300 hover:-translate-y-0.5 hover:opacity-100 cursor-pointer ${
+                  activeTab.tab === tab ? "" : "opacity-75"
                 }`}
-                onClick={() => setActiveTab(tab)}
+                onClick={() => setActiveTab({ tab, index })}
               >
                 {tab}
               </button>
@@ -407,7 +411,7 @@ export default function Skills() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full">
           {skills
             .filter((skill) => {
-              return skill.category === activeTab;
+              return skill.category === activeTab.tab;
             })
             .map((skill, index) => (
               <a

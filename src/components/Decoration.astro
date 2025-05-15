@@ -12,3 +12,60 @@
   class="bg-[#93DA33] w-[200px] h-[200px] fixed left-1/3 bottom-1/2 origin-bottom opacity-10 -z-50 spinning-div"
 >
 </div>
+
+<style>
+  .background_line1,
+  .background_line2 {
+    position: fixed;
+    height: 100dvh;
+    top: 0;
+    background-color: rgb(213, 235, 247);
+    transform: skew(-15deg) translateY(-100%);
+    z-index: -20;
+    opacity: 0.5;
+  }
+
+  .background_line1 {
+    width: 5px;
+    right: 25%;
+    animation: slideInLine 1.5s 1s forwards ease;
+  }
+
+  .background_line2 {
+    width: 2px;
+    right: 10%;
+    animation: slideInLine 1.5s 1.6s forwards ease;
+  }
+
+  @keyframes slideInLine {
+    0% {
+      filter: blur(0.5rem);
+    }
+    20% {
+      transform: skew(-15deg) translateY(0);
+    }
+    40% {
+      filter: blur(0.5rem);
+    }
+    70% {
+      filter: blur(0.8rem);
+    }
+    100% {
+      filter: blur(0.3rem);
+      transform: skew(-15deg) translateY(0);
+    }
+  }
+
+  .spinning-div {
+    animation:
+      fadeInHeader 1s ease-in 6.2s backwards,
+      spin 7s linear infinite;
+    filter: blur(60px);
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>

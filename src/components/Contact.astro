@@ -154,37 +154,48 @@ import {
       </div>
     </div>
     <button
-      class="relative col-span-full cursor-pointer bg-[linear-gradient(90deg,#014faf,#0095be)] py-2 px-4 rounded-md font-semibold overflow-hidden transition-all duration-300 ease-out tracking-wider hover:-translate-0.5 hover:shadow-[0_4px_15px_rgba(0,_114,_255,_0.4)] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-500 before:ease-in-out hover:before:left-full"
+      class="relative col-span-full cursor-pointer bg-linear-to-r from-blue-700 to-blue-500 py-2 px-4 rounded-md font-semibold overflow-hidden transition-all duration-300 ease-out tracking-wider hover:-translate-0.5 hover:shadow-[0_4px_15px_rgba(0,_114,_255,_0.4)] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-500 before:ease-in-out hover:before:left-full"
       >Enviar Mensaje</button
     >
   </form>
-
-  <script>
-    document.getElementById("mail-bubble")?.addEventListener("click", () => {
-      navigator.clipboard
-        .writeText("rolandou548@gmail.com")
-        .then(() => alert("Correo copiado al portapapeles"))
-        .catch((err) => console.error("Error al copiar", err));
-    });
-
-    document.querySelector("form")?.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const formData = new FormData(e.target as HTMLFormElement);
-      const data = Object.fromEntries(
-        Array.from(formData.entries()).map(([key, value]) => [
-          key,
-          value.toString(),
-        ])
-      );
-      console.log(data);
-      const mailtoLink = `mailto:rolandou548@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(`Nombre: ${data.name}%0AEmail: ${data.email}%0A%0AMensaje:%0A${data.message}`)}`;
-
-      const tempLink = document.createElement("a");
-      tempLink.href = mailtoLink;
-      tempLink.style.display = "none";
-      document.body.appendChild(tempLink);
-      tempLink.click();
-      document.body.removeChild(tempLink);
-    });
-  </script>
 </section>
+
+<style>
+  .glow-effect {
+    scale: 0 1;
+  }
+
+  .contact-input:focus ~ .glow-effect {
+    transform-origin: left;
+    scale: 1 1;
+  }
+</style>
+
+<script>
+  document.getElementById("mail-bubble")?.addEventListener("click", () => {
+    navigator.clipboard
+      .writeText("rolandou548@gmail.com")
+      .then(() => alert("Correo copiado al portapapeles"))
+      .catch((err) => console.error("Error al copiar", err));
+  });
+
+  document.querySelector("form")?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target as HTMLFormElement);
+    const data = Object.fromEntries(
+      Array.from(formData.entries()).map(([key, value]) => [
+        key,
+        value.toString(),
+      ])
+    );
+    console.log(data);
+    const mailtoLink = `mailto:rolandou548@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(`Nombre: ${data.name}%0AEmail: ${data.email}%0A%0AMensaje:%0A${data.message}`)}`;
+
+    const tempLink = document.createElement("a");
+    tempLink.href = mailtoLink;
+    tempLink.style.display = "none";
+    document.body.appendChild(tempLink);
+    tempLink.click();
+    document.body.removeChild(tempLink);
+  });
+</script>
