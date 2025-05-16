@@ -64,9 +64,8 @@ import {
       <Linkedin />
     </a>
     <a
-      id="mail-bubble"
       href="mailto:rolandou548@gmail.com"
-      class="relative group flex justify-center items-center bg-[linear-gradient(145deg,#50506070,#50506010)] backdrop-blur-md rounded-full h-20 w-20 transition duration-300 hover:bg-blue-950 border-blue-300 hover:border hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,_114,_255,_0.4)]"
+      class="mail-bubble relative group flex justify-center items-center bg-[linear-gradient(145deg,#50506070,#50506010)] backdrop-blur-md rounded-full h-20 w-20 transition duration-300 hover:bg-blue-950 border-blue-300 hover:border hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,_114,_255,_0.4)]"
     >
       <div
         class="p-3 absolute bg-blue-500 w-max -top-16 rounded-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100 before:absolute before:-bottom-4 before:left-1/2 before:-translate-x-1/2 before:border-8 before:border-transparent before:border-t-blue-500 pointer-events-none group-hover:pointer-events-auto"
@@ -172,11 +171,13 @@ import {
 </style>
 
 <script>
-  document.getElementById("mail-bubble")?.addEventListener("click", () => {
-    navigator.clipboard
-      .writeText("rolandou548@gmail.com")
-      .then(() => alert("Correo copiado al portapapeles"))
-      .catch((err) => console.error("Error al copiar", err));
+  document.querySelectorAll(".mail-bubble").forEach((element) => {
+    element.addEventListener("click", () => {
+      navigator.clipboard
+        .writeText("rolandou548@gmail.com")
+        .then(() => alert("Correo copiado al portapapeles"))
+        .catch((err) => console.error("Error al copiar", err));
+    });
   });
 
   document.querySelector("form")?.addEventListener("submit", async (e) => {

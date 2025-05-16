@@ -15,7 +15,7 @@
 }
 
 header.navbar {
-  animation: fadeInHeader 1s ease-in 5s backwards;
+  animation: fadeInHeader 1s ease-in 4s backwards;
 }
 
 @keyframes fadeInHeader {
@@ -25,7 +25,7 @@ header.navbar {
 }
 
 header.navbar > nav > ul {
-  animation: shadowAppear 1s ease-out 6.5s forwards;
+  animation: shadowAppear 1s ease-out 5.5s forwards;
 }
 
 @keyframes shadowAppear {
@@ -45,7 +45,7 @@ body {
   overflow-x: hidden;
 }
 
-.main-content {
+#home {
   animation: fadeInContent 800ms ease-in;
 }
 
