@@ -1,5 +1,5 @@
 ---
-import { Download } from "lucide-react";
+import { Download, Send } from "lucide-react";
 ---
 
 <section id="home" class="project-section scroll-mt-28">
@@ -10,16 +10,34 @@ import { Download } from "lucide-react";
   <h5 class="text-lg opacity-90 text-blue-200">
     Enfocado en calidad, funcionalidad y diseño.
   </h5>
-  <a
-    href="https://drive.google.com/file/d/1_S55-UcBBiTosUd2kzm4zqRTNA4u_2P2/view"
-    target="_blank"
-    class="mt-10 text-lg outline outline-blue-600 py-3 px-5 hover:bg-[rgba(0,0,0,0.3)] rounded-xl font-semibold transition-all duration-300 ease-out hover:-translate-y-0.5 hover:outline-sky-500 hover:shadow-[0_4px_15px_rgba(0,_114,_255,_0.7)] inline-block overflow-hidden before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-300 before:ease-in-out hover:before:left-full"
-  >
-    <Download
-      className="mr-1 size-5 inline-block animate-[bounce_1500ms_ease-in-out_infinite]"
-    />
-    Descargar CV
-  </a>
+  <div class="flex gap-5 mt-10">
+    <a
+      href="https://drive.google.com/file/d/1_S55-UcBBiTosUd2kzm4zqRTNA4u_2P2/view"
+      target="_blank"
+      class="inline-block text-lg outline outline-blue-600 py-3 w-44 hover:bg-[rgba(0,0,0,0.3)] rounded-xl font-semibold transition-all duration-300 ease-out hover:scale-105 hover:outline-sky-500 hover:shadow-[0_4px_15px_rgba(0,_114,_255,_0.7)] text-center overflow-hidden before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-300 before:ease-in-out hover:before:left-full"
+    >
+      <Download
+        className="mr-1 size-5 inline-block animate-[bounce_2000ms_ease-in-out_infinite]"
+      />
+      Descargar CV
+    </a>
+    <a href="#contact" class="relative block w-48 font-semibold"
+      ><div
+        class="parent absolute w-full h-[52px] hover:scale-105 bg-blue-600 hover:bg-[#155dfc80] text-white text-xl rounded-xl overflow-hidden transition-all duration-300 ease-out flex items-center justify-center gap-1 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-300 before:ease-in-out hover:before:left-full"
+      >
+        <Send className="size-5" />
+        Contáctame
+      </div>
+      <div
+        class="left-shadow absolute w-full top-0 left-0 h-14 rounded-xl -z-10 bg-gradient-to-l from-transparent to-blue-500 scale-105 blur-sm opacity-0"
+      >
+      </div>
+      <div
+        class="right-shadow absolute w-full top-0 left-0 h-14 rounded-xl -z-10 bg-gradient-to-r from-transparent to-blue-500 scale-105 blur-sm opacity-40"
+      >
+      </div>
+    </a>
+  </div>
 </section>
 
 <style>
@@ -46,3 +64,24 @@ import { Download } from "lucide-react";
       glowText 1s 6.5s linear forwards;
   }
 </style>
+
+<script>
+  const parent = document.querySelector(".parent") as HTMLElement | null;
+  const rightShadow = document.querySelector(
+    ".right-shadow"
+  ) as HTMLElement | null;
+  const leftShadow = document.querySelector(
+    ".left-shadow"
+  ) as HTMLElement | null;
+
+  if (parent && rightShadow && leftShadow) {
+    parent.addEventListener("mousemove", (event: MouseEvent) => {
+      const rect = parent.getBoundingClientRect();
+      const mouseX = event.clientX - rect.left;
+
+      const porcentajeMouseX = mouseX / rect.width;
+      rightShadow.style.opacity = `${porcentajeMouseX}`;
+      leftShadow.style.opacity = `${1 - porcentajeMouseX}`;
+    });
+  }
+</script>
