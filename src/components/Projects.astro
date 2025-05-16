@@ -25,7 +25,7 @@ const projects = (await getCollection("projects")).sort(
   </header>
 
   <ul
-    class="grid grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-6"
+    class="grid grid-cols-[repeat(auto-fit,minmax(min(350px,90%),1fr))] gap-6"
     aria-label="Lista de proyectos"
   >
     {
