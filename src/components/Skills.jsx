@@ -373,8 +373,8 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="project-section scroll-mt-5 md:scroll-mt-24 opacity-0"
-      data-animation="visible"
+      className="project-section scroll-mt-5 md:scroll-mt-24"
+      // data-animation="visible"
     >
       <div className="flex flex-col items-center text-center space-y-6">
         <div className="flex flex-col gap-4">
