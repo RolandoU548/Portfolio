@@ -82,10 +82,10 @@ export const Header = () => {
   return (
     <>
       {/* Desktop */}
-      <header className="navbar hidden md:block max-w-4xl mx-auto sticky top-0 z-50 pointer-events-none">
-        <nav className="pb-8 pt-6">
+      <header className="navbar hidden md:block max-w-[95%] w-4xl left-1/2 -translate-x-1/2 fixed top-0 z-50 pointer-events-none">
+        <nav className="flex items-center h-24">
           <ul
-            className={`font-medium flex justify-around rounded-xl p-3 transition-all duration-300 ${
+            className={`w-full font-medium flex justify-around rounded-xl p-3 transition-all duration-300 ${
               isScrolled
                 ? "bg-[rgba(0,0,10,0.7)] backdrop-blur"
                 : "bg-transparent"

@@ -1,42 +1,68 @@
 ---
-import { Download, Send } from "lucide-react";
+import { Download, Send, Github, Linkedin, Mail } from "lucide-react";
 ---
 
-<section id="home" class="project-section scroll-mt-28">
-  <h2 class="text-7xl font-bold pr-20">Rolando Uzcátegui</h2>
-  <h3 class="text-6xl font-medium text-cyan-500">
-    <span class="title tracking-tighter gradient-text">Desarrollador Web</span>
-  </h3>
-  <h5 class="text-lg opacity-90 text-blue-200">
-    Enfocado en calidad, funcionalidad y diseño.
-  </h5>
-  <div class="flex gap-5 mt-10">
-    <a
-      href="https://drive.google.com/file/d/1_S55-UcBBiTosUd2kzm4zqRTNA4u_2P2/view"
-      target="_blank"
-      class="inline-block text-lg outline outline-blue-600 py-3 w-44 hover:bg-[rgba(0,0,0,0.3)] rounded-xl font-semibold transition-all duration-300 ease-out hover:scale-105 hover:outline-sky-500 hover:shadow-[0_4px_15px_rgba(0,_114,_255,_0.7)] text-center overflow-hidden before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-300 before:ease-in-out hover:before:left-full"
+<section
+  id="home"
+  class="project-section scroll-mt-28 min-h-[100dvh] md:min-h-[calc(100dvh-48px)] md:mt-12 flex items-center"
+>
+  <div class="w-full flex flex-col gap-8">
+    <div>
+      <h1 class="text-7xl font-bold pr-20">Rolando Uzcátegui</h1>
+      <h2 class="text-6xl font-medium">
+        <span class="title tracking-tighter gradient-text"
+          >Desarrollador Web</span
+        >
+      </h2>
+      <h4 class="mt-1 text-2xl opacity-90 text-blue-200">
+        Enfocado en calidad, funcionalidad y diseño.
+      </h4>
+    </div>
+    <p class="w-full sm:w-2/3 text-xl text-pretty">
+      Diseño experiencias digitales elegantes y eficientes, combinando
+      innovación, calidad e impacto.
+    </p>
+    <div
+      class="flex gap-10 *:bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] *:border *:border-[#1447e660] *:hover:border-blue-500 *:cursor-pointer *:hover:-translate-y-0.5 *:rounded-xl *:p-2.5 *:shadow-[0px_0px_20px_#2b7fff50] *:hover:shadow-[0px_0px_20px_#2b7fff] *:transition *:duration-300"
     >
-      <Download
-        className="mr-1 size-5 inline-block animate-[bounce_2000ms_ease-in-out_infinite]"
-      />
-      Descargar CV
-    </a>
-    <a href="#contact" class="relative block w-48 font-semibold"
-      ><div
-        class="parent absolute w-full h-[52px] hover:scale-105 bg-blue-600 hover:bg-[#155dfc80] text-white text-xl rounded-xl overflow-hidden transition-all duration-300 ease-out flex items-center justify-center gap-1 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-300 before:ease-in-out hover:before:left-full"
-      >
-        <Send className="size-5" />
-        Contáctame
+      <div>
+        <Github />
       </div>
-      <div
-        class="left-shadow absolute w-full top-0 left-0 h-14 rounded-xl -z-10 bg-gradient-to-l from-transparent to-blue-500 scale-105 blur-sm opacity-0"
-      >
+      <div>
+        <Linkedin />
       </div>
-      <div
-        class="right-shadow absolute w-full top-0 left-0 h-14 rounded-xl -z-10 bg-gradient-to-r from-transparent to-blue-500 scale-105 blur-sm opacity-40"
-      >
+      <div>
+        <Mail />
       </div>
-    </a>
+    </div>
+    <div class="flex gap-5">
+      <a
+        href="https://drive.google.com/file/d/1_S55-UcBBiTosUd2kzm4zqRTNA4u_2P2/view"
+        target="_blank"
+        class="inline-block text-lg outline outline-blue-600 py-3 w-44 hover:bg-[rgba(0,0,0,0.3)] rounded-xl font-semibold transition-all duration-300 ease-out hover:scale-105 hover:outline-sky-500 hover:shadow-[0_4px_15px_rgba(0,_114,_255,_0.7)] text-center overflow-hidden before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-300 before:ease-in-out hover:before:left-full"
+      >
+        <Download
+          className="mr-1 size-5 inline-block animate-[bounce_2000ms_ease-in-out_infinite]"
+        />
+        Descargar CV
+      </a>
+      <a href="#contact" class="relative block w-48 font-semibold"
+        ><div
+          class="parent absolute w-full h-[52px] hover:scale-105 bg-blue-600 hover:bg-[#155dfc80] text-white text-xl rounded-xl overflow-hidden transition-all duration-300 ease-out flex items-center justify-center gap-1 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-300 before:ease-in-out hover:before:left-full"
+        >
+          <Send className="size-5" />
+          Contáctame
+        </div>
+        <div
+          class="left-shadow absolute w-full top-0 left-0 h-14 rounded-xl -z-10 bg-gradient-to-l from-transparent to-blue-500 scale-110 blur-sm opacity-0"
+        >
+        </div>
+        <div
+          class="right-shadow absolute w-full top-0 left-0 h-14 rounded-xl -z-10 bg-gradient-to-r from-transparent to-blue-500 scale-110 blur-sm opacity-40"
+        >
+        </div>
+      </a>
+    </div>
   </div>
 </section>
 
