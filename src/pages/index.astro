@@ -13,11 +13,11 @@ import Decoration from "../components/Decoration.astro";
 <Layout>
   <Decoration />
   <Header client:load />
-  <main class="max-w-4xl px-4 lg:p-0 mx-auto flex flex-col gap-12">
+  <main class="max-w-4xl md:mt-12 px-4 lg:p-0 mx-auto flex flex-col gap-12">
     <Home />
     <About />
     <!-- <Projects /> -->
-    <!-- <Skills client:load /> -->
+    <Skills client:load />
     <Contact />
   </main>
   <Footer />
