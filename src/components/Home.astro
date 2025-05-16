@@ -23,7 +23,7 @@ import { Download, Send, Github, Linkedin, Mail } from "lucide-react";
       innovación, calidad e impacto.
     </p>
     <div
-      class="flex gap-10 *:bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] *:border *:border-[#1447e660] *:hover:border-blue-500 *:cursor-pointer *:hover:-translate-y-0.5 *:rounded-xl *:p-2.5 *:hover:shadow-[0px_0px_20px_#2b7fff] *:transition *:duration-300"
+      class="flex gap-10 *:bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] *:border *:border-[#1447e660] *:hover:border-blue-500 *:cursor-pointer *:hover:-translate-y-0.5 *:rounded-xl *:p-2.5 *:shadow-[0px_0px_20px_rgba(43,127,255,0.31)] *:hover:shadow-[0px_0px_20px_#2b7fff] *:transition *:duration-300"
     >
       <a
         class="contact-item"
@@ -106,13 +106,16 @@ import { Download, Send, Github, Linkedin, Mail } from "lucide-react";
     0% {
       box-shadow: none;
     }
+    85% {
+      box-shadow: none;
+    }
     100% {
       box-shadow: 0px 0px 20px rgba(43, 127, 255, 0.31);
     }
   }
 
   .contact-item {
-    animation: aparecerSombra 1s 5s ease-in forwards;
+    animation: aparecerSombra 6s ease-in;
   }
 </style>
 
