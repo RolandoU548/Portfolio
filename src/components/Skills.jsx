@@ -378,7 +378,7 @@ export default function Skills() {
     >
       <div className="flex flex-col items-center text-center space-y-6">
         <div className="flex flex-col gap-4">
-          <h2 className="text-3xl font-bold tracking-tighter gradient-text">
+          <h2 className="text-3xl font-bold tracking-tighter shiny-text">
             Habilidades
             <CodeXml className="inline size-7 text-blue-400 ml-2 mb-1" />
           </h2>
@@ -390,7 +390,7 @@ export default function Skills() {
         <div className="w-full">
           <div className="p-1.5 mx-auto w-fit grid grid-cols-3 bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] rounded-full">
             <div
-              className="absolute rounded-full h-10 w-20 min-[480px]:w-32 sm:w-48 transition-all duration-300 bg-linear-to-r from-blue-700 to-blue-500"
+              className="tab-switcher absolute rounded-full h-10 w-20 min-[480px]:w-32 sm:w-48 transition-all duration-300 bg-blue-600"
               style={{
                 transform: `translateX(${activeTab.index * 100}%)`,
               }}

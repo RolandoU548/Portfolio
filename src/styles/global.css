@@ -1,11 +1,21 @@
 @import "tailwindcss";
 
-.gradient-bg {
-  background: linear-gradient(
-    to bottom right,
-    hsl(217, 91%, 10%),
-    hsl(222, 47%, 11%)
-  );
+@keyframes shine {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: -100%;
+  }
+}
+.shiny-text {
+  color: transparent;
+  background: linear-gradient(100deg, #2b7fff, #2b7fff, #fff, #2b7fff, #2b7fff);
+  background-size: 200% 100%;
+  display: inline-block;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 4s linear infinite;
 }
 
 .gradient-text {
@@ -84,4 +94,46 @@ body {
 
 .visible-left {
   animation: slideInFromLeft 1s ease forwards;
+}
+
+.tab-switcher::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 0.3;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    #155dfc,
+    #fff,
+    #155dfc,
+    #0a0b15,
+    #155dfc,
+    #155dfc,
+    #155dfc,
+    #0a0b15,
+    #155dfc,
+    #fff
+  );
+  background-size: 800%;
+  border-radius: calc(infinity * 1px);
+  filter: blur(5px);
+  animation: glowing 40s linear infinite;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
 }
