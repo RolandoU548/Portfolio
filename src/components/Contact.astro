@@ -180,23 +180,41 @@ import {
     });
   });
 
-  document.querySelector("form")?.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
-    const data = Object.fromEntries(
-      Array.from(formData.entries()).map(([key, value]) => [
-        key,
-        value.toString(),
-      ])
-    );
-    console.log(data);
-    const mailtoLink = `mailto:rolandou548@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(`Nombre: ${data.name}%0AEmail: ${data.email}%0A%0AMensaje:%0A${data.message}`)}`;
+  document
+    .querySelector("form")
+    ?.addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-    const tempLink = document.createElement("a");
-    tempLink.href = mailtoLink;
-    tempLink.style.display = "none";
-    document.body.appendChild(tempLink);
-    tempLink.click();
-    document.body.removeChild(tempLink);
-  });
+      const form = this as HTMLFormElement;
+      const formData = {
+        name: (form.elements.namedItem("name") as HTMLInputElement)?.value,
+        email: (form.elements.namedItem("email") as HTMLInputElement)?.value,
+        subject: (form.elements.namedItem("subject") as HTMLInputElement)
+          ?.value,
+        message: (form.elements.namedItem("message") as HTMLTextAreaElement)
+          ?.value,
+      };
+
+      try {
+        const response = await fetch(import.meta.env.PUBLIC_CONTACT_API_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          alert("Message sent successfully!");
+          this.reset();
+        } else {
+          alert("Error: " + (result.message || "Failed to send message"));
+        }
+      } catch (error) {
+        alert("Failed to send message. Please try again later.");
+        console.error(error);
+      }
+    });
 </script>
