@@ -52,7 +52,7 @@ const projects = (await getCollection("projects")).sort(
                   >
                     {tags.map((tag) => (
                       <li>
-                        <span class="flex justify-center items-center gap-1 px-2 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full">
+                        <span class="flex justify-center items-center gap-1 px-2 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full">
                           <img
                             class="opacity-100 size-5 inline-block"
                             src={tag[1]}
