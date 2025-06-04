@@ -271,7 +271,7 @@ export default function Skills() {
       href: "https://www.python.org/",
     },
     {
-      name: "Github",
+      name: "GitHub",
       icon: (
         <svg
           viewBox="0 0 24 24"
