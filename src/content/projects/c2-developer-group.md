@@ -8,7 +8,7 @@ tags:
     ["Tailwind", "/logos/tailwind.svg"],
     ["Framer Motion", "/logos/framer-motion.svg"],
   ]
-liveUrl: "https://c2developergroup.vercel.app/"
+liveUrl: "https://c2developergroup.com"
 githubUrl: "https://github.com/RolandoU548/c2developergroup"
 order: 3
 ---
