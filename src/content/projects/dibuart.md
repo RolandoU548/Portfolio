@@ -1,6 +1,6 @@
 ---
-title: "PATAS LINDA"
-image: "/patas.jpg"
+title: "DibuArt"
+image: "/dibuart.jpg"
 tags:
   [
     ["Next", "/logos/nextjs.svg"],
@@ -12,8 +12,8 @@ tags:
     ["Redux", "/logos/redux.svg"],
     ["Tailwind", "/logos/tailwind.svg"],
   ]
-liveUrl: "https://patas-linda.vercel.app/"
-githubUrl: "https://github.com/RolandoU548/Patas"
+liveUrl: "https://dibuart.vercel.app/"
+githubUrl: "https://github.com/RolandoU548/Dibuart"
 order: 2
 ---
 
@@ -21,4 +21,4 @@ order: 2
 
 <p>Su funcionalidad de edición incluye la posibilidad de superponer nuevas imágenes y agregar formas, brindando un espacio dinámico para la creatividad digital.</p>
 
-<p>Originalmente concebido para dibujos, Patas ofrece una experiencia intuitiva para artistas y entusiastas del diseño que buscan una herramienta versátil para organizar y transformar sus creaciones.</p>
+<p>Originalmente concebido para dibujos, DibuArt ofrece una experiencia intuitiva para artistas y entusiastas del diseño que buscan una herramienta versátil para organizar y transformar sus creaciones.</p>
