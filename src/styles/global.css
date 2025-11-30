@@ -88,12 +88,14 @@ body {
   }
 }
 
-.visible {
-  animation: slideInFromRight 1s ease forwards;
-}
+@media (min-width: 768px) {
+  .visible {
+    animation: slideInFromRight 1s ease forwards;
+  }
 
-.visible-left {
-  animation: slideInFromLeft 1s ease forwards;
+  .visible-left {
+    animation: slideInFromLeft 1s ease forwards;
+  }
 }
 
 .tab-switcher::before {
