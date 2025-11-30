@@ -1,5 +1,6 @@
 ---
 title: "SMART PAGO MÓVIL (Frontend)"
+locale: "es"
 image: "/smart-pago-movil.jpg"
 tags:
   [

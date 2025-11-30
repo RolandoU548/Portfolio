@@ -1,5 +1,6 @@
 ---
 title: "C2 DEVELOPER GROUP"
+locale: "es"
 image: "/c2.jpg"
 tags:
   [

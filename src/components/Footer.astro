@@ -1,11 +1,13 @@
 ---
 import { Github, Linkedin, Mail } from "lucide-react";
+
+const { t } = Astro.props as { t: Function };
 const navLinks = [
-  { name: "Inicio", href: "#home" },
-  { name: "Sobre Mí", href: "#about" },
-  { name: "Proyectos", href: "#projects" },
-  { name: "Habilidades", href: "#skills" },
-  { name: "Contacto", href: "#contact" },
+  { name: t("nav.home"), href: "#home" },
+  { name: t("nav.about"), href: "#about" },
+  { name: t("nav.projects"), href: "#projects" },
+  { name: t("nav.skills"), href: "#skills" },
+  { name: t("nav.contact"), href: "#contact" },
 ];
 ---
 
@@ -39,10 +41,10 @@ const navLinks = [
         </a>
         <a
           href="mailto:rolandou548@gmail.com"
-          class="text-blue-400 hover:text-blue-300 transition-colors"
+          class="mail-bubble text-blue-400 hover:text-blue-300 transition-colors"
         >
           <Mail className="h-5 w-5" />
-          <span class="sr-only">LinkedIn</span>
+          <span class="sr-only">Mail</span>
         </a>
       </div>
 

@@ -1,10 +1,18 @@
 import { useState, useEffect } from "react";
 import { AlignJustify, X } from "lucide-react";
+import { useTranslations } from "../i18n/utils";
+import type { languageList } from "../i18n/ui";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("#home");
+
+  const currentLang =
+    typeof window !== "undefined"
+      ? document.documentElement.lang || "en"
+      : "en";
+  const t = useTranslations(currentLang as keyof typeof languageList);
 
   useEffect(() => {
     // Ver si hay scroll para aumentar la opacidad del navbar
@@ -24,8 +32,8 @@ export const Header = () => {
     const sections = document.querySelectorAll(".project-section");
 
     // Ver que sección esta observando el usuario
-    const observerActiveSessionCallback = (entries) => {
-      entries.forEach((entry) => {
+    const observerActiveSessionCallback = (entries: any[]) => {
+      entries.forEach((entry: { isIntersecting: any; target: { id: any } }) => {
         if (entry.isIntersecting) {
           setActiveSection(`#${entry.target.id}`);
         }
@@ -44,13 +52,24 @@ export const Header = () => {
     sections.forEach((section) => observerActiveSession.observe(section));
 
     // Ver que sección se tiene que ejecutar su animación
-    const observerScrollAnimationCallback = (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add(entry.target.dataset.animation);
-          observer.unobserve(entry.target);
+    const observerScrollAnimationCallback = (
+      entries: any[],
+      observer: { unobserve: (arg0: any) => void }
+    ) => {
+      entries.forEach(
+        (entry: {
+          isIntersecting: any;
+          target: {
+            classList: { add: (arg0: any) => void };
+            dataset: { animation: any };
+          };
+        }) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(entry.target.dataset.animation);
+            observer.unobserve(entry.target);
+          }
         }
-      });
+      );
     };
 
     const observerScrollAnimationOptions = {
@@ -72,11 +91,11 @@ export const Header = () => {
   }, []);
 
   const navLinks = [
-    { name: "Inicio", href: "#home" },
-    { name: "Sobre Mí", href: "#about" },
-    { name: "Proyectos", href: "#projects" },
-    { name: "Habilidades", href: "#skills" },
-    { name: "Contacto", href: "#contact" },
+    { name: t("nav.home"), href: "#home" },
+    { name: t("nav.about"), href: "#about" },
+    { name: t("nav.projects"), href: "#projects" },
+    { name: t("nav.skills"), href: "#skills" },
+    { name: t("nav.contact"), href: "#contact" },
   ];
 
   return (

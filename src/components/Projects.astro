@@ -2,31 +2,35 @@
 import { getCollection, render } from "astro:content";
 import { ExternalLink, Github, PanelsTopLeft } from "lucide-react";
 
-const projects = (await getCollection("projects")).sort(
-  (a, b) => a.data.order - b.data.order
-);
+const projects = (
+  await getCollection(
+    "projects",
+    ({ data }) => data.locale === Astro.currentLocale
+  )
+).sort((a, b) => a.data.order - b.data.order);
+
+const { t } = Astro.props as { t: Function };
 ---
 
 <section
   id="projects"
   class="project-section scroll-mt-5 md:scroll-mt-24 opacity-0"
   data-animation="visible-left"
-  aria-label="Proyectos"
+  aria-label={t("projects.title")}
 >
   <header class="flex flex-col items-center text-center space-y-4 mb-12">
     <h2 class="text-3xl font-bold tracking-tighter shiny-text">
-      Proyectos
+      {t("projects.title")}
       <PanelsTopLeft className="inline size-7 text-blue-400 ml-1 mb-1" />
     </h2>
     <p class="text-blue-100 max-w-[700px]">
-      Estos son algunos de los proyectos en los que he trabajado. Cada proyecto
-      representa diferentes habilidades y desafíos que he abordado.
+      {t("projects.description")}
     </p>
   </header>
 
   <ul
     class="grid grid-cols-[repeat(auto-fit,minmax(min(350px,90%),1fr))] gap-6"
-    aria-label="Lista de proyectos"
+    aria-label={t("projects.listLabel")}
   >
     {
       projects.map(async (project) => {
@@ -75,7 +79,7 @@ const projects = (await getCollection("projects")).sort(
                     aria-label={`Código fuente de ${title}`}
                   >
                     <Github className="h-4 w-4" />
-                    <span>Code</span>
+                    <span>{t("projects.code")}</span>
                   </a>
                   <a
                     href={liveUrl}
@@ -85,7 +89,7 @@ const projects = (await getCollection("projects")).sort(
                     aria-label={`Demo en vivo de ${title}`}
                   >
                     <ExternalLink className="h-4 w-4" />
-                    <span>Live Demo</span>
+                    <span>{t("projects.live")}</span>
                   </a>
                 </footer>
               </div>

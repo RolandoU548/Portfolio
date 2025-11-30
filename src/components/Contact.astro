@@ -8,20 +8,25 @@ import {
   Pencil,
   MessagesSquare,
 } from "lucide-react";
+
+const { t } = Astro.props as { t: Function };
 ---
 
 <section
   id="contact"
   class="project-section scroll-mt-5 md:scroll-mt-24 flex flex-col items-center gap-6 opacity-0"
   data-animation="visible-left"
+  aria-label={t("contact.title")}
+  data-copied={t("contact.copied")}
+  data-error={t("contact.error")}
 >
   <div class="flex flex-col gap-4">
     <h2 class="text-3xl font-bold tracking-tighter text-center shiny-text">
-      Contacto
+      {t("contact.title")}
       <MessagesSquare className="inline size-7 text-blue-400 ml-1" />
     </h2>
     <p class="text-blue-100 max-w-[700px] text-center">
-      No dudes en contactarme para cualquier proyecto o colaboración.
+      {t("contact.description")}
     </p>
   </div>
   <div class="flex justify-evenly w-full">
@@ -33,7 +38,7 @@ import {
       <div
         class="hidden sm:block p-3 absolute bg-blue-500 w-max -top-16 rounded-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100 before:absolute before:-bottom-4 before:left-1/2 before:-translate-x-1/2 before:border-8 before:border-transparent before:border-t-blue-500 pointer-events-none group-hover:pointer-events-auto"
       >
-        RolandoU548
+        {t("contact.githubLabel")}
       </div>
       <span
         class="group-hover:hidden group-hover:opacity-0 transition-discrete starting:opacity-0 duration-300 bg-blue-500 size-3 rounded-full absolute top-1.5 right-1.5 pointer-events-none"
@@ -52,7 +57,7 @@ import {
       <div
         class="hidden sm:block p-3 absolute bg-blue-500 w-max -top-16 rounded-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100 before:absolute before:-bottom-4 before:left-1/2 before:-translate-x-1/2 before:border-8 before:border-transparent before:border-t-blue-500 pointer-events-none group-hover:pointer-events-auto"
       >
-        Rolando Uzcátegui
+        {t("contact.linkedinLabel")}
       </div>
       <span
         class="group-hover:hidden group-hover:opacity-0 transition-discrete starting:opacity-0 duration-300 bg-blue-500 size-3 rounded-full absolute top-1.5 right-1.5 pointer-events-none"
@@ -66,11 +71,12 @@ import {
     <a
       href="mailto:rolandou548@gmail.com"
       class="mail-bubble relative group flex justify-center items-center bg-[linear-gradient(145deg,#50506070,#50506010)] backdrop-blur-md rounded-full h-20 w-20 transition duration-300 hover:bg-blue-950 border-blue-300 hover:border hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,_114,_255,_0.4)]"
+      data-email={t("contact.emailLabel")}
     >
       <div
         class="hidden sm:block p-3 absolute bg-blue-500 w-max -top-16 rounded-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100 before:absolute before:-bottom-4 before:left-1/2 before:-translate-x-1/2 before:border-8 before:border-transparent before:border-t-blue-500 pointer-events-none group-hover:pointer-events-auto"
       >
-        rolandou548@gmail.com
+        {t("contact.emailLabel")}
       </div>
       <span
         class="group-hover:hidden group-hover:opacity-0 transition-discrete starting:opacity-0 duration-300 bg-blue-500 size-3 rounded-full absolute top-1.5 right-1.5 pointer-events-none"
@@ -82,19 +88,19 @@ import {
       <Mail />
     </a>
   </div>
-  <p>O también contáctame a través de mi correo:</p>
+  <p>{t("contact.or")}</p>
   <form
     class="w-full grid grid-cols-1 md:grid-cols-2 gap-5 p-4 rounded-lg bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] backdrop-blur-md border border-blue-500/20"
   >
     <div class="relative">
-      <label for="name">Nombre</label>
+      <label for="name">{t("contact.form.name")}</label>
       <User size={18} className="absolute bottom-3 left-3 text-blue-400" />
       <input
         type="text"
         id="name"
         name="name"
         autocomplete="name"
-        placeholder="Tu Nombre"
+        placeholder={t("contact.form.namePlaceholder")}
         required
         class="contact-input rounded border border-blue-500/20 outline-0 w-full p-2 pl-10 text-blue-300 mt-2 focus:border-blue-400 focus:shadow-[0_0_15px_rgba(79,172,254,0.5)] placeholder:text-white placeholder:opacity-40"
       />
@@ -104,14 +110,14 @@ import {
       </div>
     </div>
     <div class="relative">
-      <label for="email">Correo Electrónico</label>
+      <label for="email">{t("contact.form.email")}</label>
       <AtSign size={18} className="absolute bottom-3 left-3 text-blue-400" />
       <input
         type="text"
         id="email"
         name="email"
         autocomplete="email"
-        placeholder="Tu Correo"
+        placeholder={t("contact.form.emailPlaceholder")}
         required
         class="contact-input rounded border border-blue-500/20 outline-0 w-full p-2 pl-10 text-blue-300 mt-2 focus:border-blue-400 focus:shadow-[0_0_15px_rgba(79,172,254,0.5)] placeholder:text-white placeholder:opacity-40"
       />
@@ -121,14 +127,14 @@ import {
       </div>
     </div>
     <div class="relative col-span-full">
-      <label for="subject">Asunto</label>
+      <label for="subject">{t("contact.form.subject")}</label>
       <Pencil size={18} className="absolute bottom-3 left-3 text-blue-400" />
       <input
         id="subject"
         name="subject"
         required
         type="text"
-        placeholder="Asunto"
+        placeholder={t("contact.form.subjectPlaceholder")}
         class="contact-input rounded border border-blue-500/20 outline-0 w-full p-2 pl-10 text-blue-300 mt-2 focus:border-blue-400 focus:shadow-[0_0_15px_rgba(79,172,254,0.5)] placeholder:text-white placeholder:opacity-40"
       />
       <div
@@ -137,13 +143,13 @@ import {
       </div>
     </div>
     <div class="relative col-span-full">
-      <label for="message">Mensaje</label>
+      <label for="message">{t("contact.form.message")}</label>
       <Mail size={18} className="absolute top-11 left-3 text-blue-400" />
       <textarea
         id="message"
         name="message"
         required
-        placeholder="Tu mensaje"
+        placeholder={t("contact.form.messagePlaceholder")}
         rows="4"
         class="contact-input rounded border border-blue-500/20 outline-0 w-full p-2 pl-10 text-blue-300 mt-2 focus:border-blue-400 focus:shadow-[0_0_15px_rgba(79,172,254,0.5)] placeholder:text-white placeholder:opacity-40"
       ></textarea>
@@ -154,7 +160,7 @@ import {
     </div>
     <button
       class="relative col-span-full cursor-pointer bg-linear-to-r from-blue-700 to-blue-500 py-2 px-4 rounded-md font-semibold overflow-hidden transition-all duration-300 ease-out hover:-translate-0.5 hover:shadow-[0_4px_15px_rgba(0,_114,_255,_0.4)] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-500 before:ease-in-out hover:before:left-full"
-      >Enviar Mensaje</button
+      >{t("contact.form.submit")}</button
     >
   </form>
 </section>
@@ -171,50 +177,60 @@ import {
 </style>
 
 <script>
-  document.querySelectorAll(".mail-bubble").forEach((element) => {
-    element.addEventListener("click", () => {
-      navigator.clipboard
-        .writeText("rolandou548@gmail.com")
-        .then(() => alert("Correo copiado al portapapeles"))
-        .catch((err) => console.error("Error al copiar", err));
+  (function () {
+    const section = document.querySelector("#contact") as HTMLElement | null;
+    const COPIED_MSG = section?.dataset.copied;
+    const COPIED_ERROR = section?.dataset.error;
+
+    document.querySelectorAll(".mail-bubble").forEach((el) => {
+      const element = el as HTMLElement;
+      element.addEventListener("click", () => {
+        const email = element.dataset.email || "rolandou548@gmail.com";
+        navigator.clipboard
+          .writeText(email)
+          .then(() => alert(COPIED_MSG))
+          .catch((err) => console.error("Error al copiar", err));
+      });
     });
-  });
 
-  document
-    .querySelector("form")
-    ?.addEventListener("submit", async function (e) {
-      e.preventDefault();
+    document
+      .querySelector("form")
+      ?.addEventListener("submit", async function (e) {
+        e.preventDefault();
 
-      const form = this as HTMLFormElement;
-      const formData = {
-        name: (form.elements.namedItem("name") as HTMLInputElement)?.value,
-        email: (form.elements.namedItem("email") as HTMLInputElement)?.value,
-        subject: (form.elements.namedItem("subject") as HTMLInputElement)
-          ?.value,
-        message: (form.elements.namedItem("message") as HTMLTextAreaElement)
-          ?.value,
-      };
+        const form = this;
+        const formData = {
+          name:
+            (form.elements.namedItem("name") as HTMLInputElement)?.value || "",
+          email:
+            (form.elements.namedItem("email") as HTMLInputElement)?.value || "",
+          subject:
+            (form.elements.namedItem("subject") as HTMLInputElement)?.value ||
+            "",
+          message:
+            (form.elements.namedItem("message") as HTMLTextAreaElement)
+              ?.value || "",
+        };
 
-      try {
-        const response = await fetch(import.meta.env.PUBLIC_CONTACT_API_URL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        });
+        try {
+          const response = await fetch(import.meta.env.PUBLIC_CONTACT_API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+          });
 
-        const result = await response.json();
+          const result = await response.json();
 
-        if (result.success) {
-          alert("Message sent successfully!");
-          this.reset();
-        } else {
-          alert("Error: " + (result.message || "Failed to send message"));
+          if (result.success) {
+            alert("Message sent successfully!");
+            form.reset();
+          } else {
+            alert("Error: " + (result.message || "Failed to send message"));
+          }
+        } catch (error) {
+          alert("Failed to send message. Please try again later.");
+          console.error(error);
         }
-      } catch (error) {
-        alert("Failed to send message. Please try again later.");
-        console.error(error);
-      }
-    });
+      });
+  })();
 </script>

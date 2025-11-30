@@ -1,9 +1,27 @@
+import { useState, type JSX } from "react";
 import { CodeXml } from "lucide-react";
-import { useState } from "react";
+import { useTranslations } from "../i18n/utils";
+import type { languageList } from "../i18n/ui";
+
+type Skill = {
+  name: string;
+  icon: JSX.Element;
+  category: string;
+  href: string;
+};
 
 export default function Skills() {
-  const [activeTab, setActiveTab] = useState({ tab: "Frontend", index: 0 });
-  const skills = [
+  const currentLang =
+    typeof window !== "undefined"
+      ? document.documentElement.lang || "en"
+      : "en";
+  const t = useTranslations(currentLang as keyof typeof languageList);
+
+  const [activeTab, setActiveTab] = useState<{ tab: string; index: number }>({
+    tab: "Frontend",
+    index: 0,
+  });
+  const skills: Skill[] = [
     {
       name: "HTML5",
       icon: (
@@ -370,6 +388,8 @@ export default function Skills() {
     },
   ];
 
+  const tabs = ["Frontend", "Backend", "Tools"];
+
   return (
     <section
       id="skills"
@@ -379,12 +399,11 @@ export default function Skills() {
       <div className="flex flex-col items-center text-center space-y-6">
         <div className="flex flex-col gap-4">
           <h2 className="text-3xl font-bold tracking-tighter shiny-text">
-            Habilidades
+            {t("skills.title")}
             <CodeXml className="inline size-7 text-blue-400 ml-2 mb-1" />
           </h2>
           <p className="text-blue-100 max-w-[700px]">
-            He trabajado con diversas tecnologías y herramientas a lo largo de
-            mi experiencia. Estas son algunas de mis habilidades clave.
+            {t("skills.description")}
           </p>
         </div>
         <div className="w-full">
@@ -395,7 +414,7 @@ export default function Skills() {
                 transform: `translateX(${activeTab.index * 100}%)`,
               }}
             ></div>
-            {["Frontend", "Backend", "Tools"].map((tab, index) => (
+            {tabs.map((tab, index) => (
               <button
                 key={tab}
                 className={`z-10 rounded-full h-10 w-20 min-[480px]:w-32 sm:w-48 transition-all duration-300 hover:-translate-y-0.5 hover:opacity-100 cursor-pointer ${
@@ -403,21 +422,20 @@ export default function Skills() {
                 }`}
                 onClick={() => setActiveTab({ tab, index })}
               >
-                {tab}
+                {t(`skills.tab.${tab.toLowerCase()}`)}
               </button>
             ))}
           </div>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full">
           {skills
-            .filter((skill) => {
-              return skill.category === activeTab.tab;
-            })
+            .filter((skill) => skill.category === activeTab.tab)
             .map((skill, index) => (
               <a
                 key={index}
                 href={skill.href}
                 target="_blank"
+                rel="noreferrer"
                 className="flex flex-col items-center p-4 rounded-lg bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] backdrop-blur-md border border-blue-500/20 transition-all duration-300 ease-in-out hover:translate-y-[-5px] hover:border-blue-500/50 hover:shadow-[0px_10px_20px_rgba(59,130,246,0.2)]"
               >
                 <div className="p-2 rounded-full bg-blue-500/20 mb-3">
@@ -426,7 +444,9 @@ export default function Skills() {
                 <h3 className="font-medium text-sm text-blue-100">
                   {skill.name}
                 </h3>
-                <p className="text-xs text-blue-300">{skill.category}</p>
+                <p className="text-xs text-blue-300">
+                  {t(`skills.tab.${skill.category.toLowerCase()}`)}
+                </p>
               </a>
             ))}
         </div>

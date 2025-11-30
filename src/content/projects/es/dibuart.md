@@ -1,5 +1,6 @@
 ---
 title: "DibuArt"
+locale: "es"
 image: "/dibuart.jpg"
 tags:
   [

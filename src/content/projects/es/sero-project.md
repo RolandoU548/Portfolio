@@ -1,5 +1,6 @@
 ---
 title: "SERO PROJECT"
+locale: "es"
 image: "/sero.jpg"
 tags:
   [

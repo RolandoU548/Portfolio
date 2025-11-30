@@ -1,9 +1,10 @@
 ---
 import "../styles/global.css";
+const currentLang = Astro.currentLocale || "en";
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth bg-[rgb(1,9,28)] text-white">
+<html lang={currentLang} class="scroll-smooth bg-[rgb(1,9,28)] text-white">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
