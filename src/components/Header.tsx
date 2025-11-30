@@ -190,6 +190,9 @@ export const Header = () => {
               </li>
             );
           })}
+          <li>
+            <AnimatedSelect />
+          </li>
         </ul>
       </div>
     </>
