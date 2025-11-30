@@ -17,13 +17,6 @@ export const AnimatedSelect = () => {
 
   const options = createLanguageOptions(languageList);
 
-  // Anchos para el cálculo de centrado (en píxeles)
-  const DROPDOWN_WIDTH = 200;
-  const CLOSED_WIDTH = 56; // Más reducido (antes 60)
-
-  // Cálculo para centrar el dropdown grande sobre el botón pequeño
-  const OFFSET_LEFT = (DROPDOWN_WIDTH - CLOSED_WIDTH) / 2;
-
   const currentLang =
     typeof window !== "undefined"
       ? document.documentElement.lang || "en"
@@ -33,7 +26,14 @@ export const AnimatedSelect = () => {
   const [selectedOption, setSelectedOption] = useState(
     options.find((option) => option.value === currentLang) || options[0]
   );
+
   const containerRef = useRef(null);
+  // Anchos para el cálculo de centrado (en píxeles)
+  const DROPDOWN_WIDTH = 200;
+  const CLOSED_WIDTH = 56; // Más reducido (antes 60)
+
+  // Cálculo para centrar el dropdown grande sobre el botón pequeño
+  const OFFSET_LEFT = (DROPDOWN_WIDTH - CLOSED_WIDTH) / 2;
 
   // Lógica para cerrar al hacer clic fuera
   useEffect(() => {
@@ -79,11 +79,10 @@ export const AnimatedSelect = () => {
       <button
         className={`group
           flex justify-between items-center w-full py-1 px-2 
-          border border-gray-600/30 
+          border border-gray-600/30
           rounded-md cursor-pointer text-base transition-all duration-200 
           bg-gray-800/40 hover:bg-gray-700/50 
-          backdrop-blur-sm 
-          text-gray-100 shadow-md 
+          backdrop-blur-sm shadow-md 
           ${isOpen ? "border-blue-400" : ""} 
         `}
         onClick={() => setIsOpen(!isOpen)}
@@ -94,7 +93,7 @@ export const AnimatedSelect = () => {
           <img
             src={selectedOption.flagUrl}
             alt={`Bandera de ${selectedOption.label}`}
-            className={`flag-icon-closed transition-filter duration-200 group-hover:saturate-100 ${
+            className={`w-6 h-4.5 rounded-xs object-cover block transition-filter duration-200 group-hover:saturate-100 ${
               isOpen ? "saturate-100" : "saturate-50"
             }`}
           />
@@ -144,33 +143,13 @@ export const AnimatedSelect = () => {
               <img
                 src={option.flagUrl}
                 alt={`Bandera de ${option.label}`}
-                className={`flag-icon-open `}
+                className="w-8 h-6 object-cover rounded-xs mr-3"
               />
               <span className="text-sm">{option.label}</span>
             </li>
           </a>
         ))}
       </ul>
-
-      {/* 3. Estilos CSS para las banderas (Se requiere CSS simple para el tamaño de la imagen) */}
-      <style jsx>{`
-        /* Tamaño de la bandera en el botón cerrado */
-        .flag-icon-closed {
-          width: 24px;
-          height: 18px; /* Mantener proporción */
-          object-fit: cover;
-          border-radius: 2px;
-          display: block;
-        }
-        /* Tamaño de la bandera en el dropdown abierto */
-        .flag-icon-open {
-          width: 32px; /* Ligeramente más grande */
-          height: 24px;
-          object-fit: cover;
-          border-radius: 3px;
-          margin-right: 12px; /* Espacio entre bandera y texto */
-        }
-      `}</style>
     </div>
   );
 };
