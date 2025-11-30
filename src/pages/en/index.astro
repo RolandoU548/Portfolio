@@ -11,6 +11,8 @@ import Decoration from "../../components/Decoration.astro";
 import { useTranslations } from "../../i18n/utils";
 import type { languageList } from "../../i18n/ui";
 
+export const prerender = false;
+
 const currentLang = Astro.currentLocale;
 const t = useTranslations(currentLang as keyof typeof languageList);
 ---
