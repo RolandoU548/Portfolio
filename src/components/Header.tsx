@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { AlignJustify, X } from "lucide-react";
 import { useTranslations } from "../i18n/utils";
 import type { languageList } from "../i18n/ui";
+import { AnimatedSelect } from "./AnimatedSelect.jsx";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,7 +12,7 @@ export const Header = () => {
   const currentLang =
     typeof window !== "undefined"
       ? document.documentElement.lang || "en"
-      : "en";
+      : "es";
   const t = useTranslations(currentLang as keyof typeof languageList);
 
   useEffect(() => {
@@ -134,6 +135,9 @@ export const Header = () => {
                 </li>
               );
             })}
+            <li>
+              <AnimatedSelect />
+            </li>
           </ul>
         </nav>
       </header>
