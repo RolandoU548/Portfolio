@@ -17,12 +17,12 @@ const t = useTranslations(currentLang as keyof typeof languageList);
 
 <Layout>
   <Decoration />
-  <Header client:load />
+  <Header client:load currentLang={currentLang as "en" | "es"} />
   <main class="max-w-4xl md:mt-12 px-4 lg:p-0 mx-auto flex flex-col gap-16">
     <Home t={t} />
     <About t={t} />
     <Projects t={t} />
-    <Skills client:load />
+    <Skills client:load currentLang={currentLang as "en" | "es"} />
     <Contact t={t} />
   </main>
   <Footer t={t} />

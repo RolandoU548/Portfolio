@@ -10,11 +10,11 @@ type Skill = {
   href: string;
 };
 
-export default function Skills() {
-  const currentLang =
-    typeof window !== "undefined"
-      ? document.documentElement.lang || "en"
-      : "en";
+interface SkillsProps {
+  currentLang: keyof typeof languageList;
+}
+
+export default function Skills({ currentLang }: SkillsProps) {
   const t = useTranslations(currentLang as keyof typeof languageList);
 
   const [activeTab, setActiveTab] = useState<{ tab: string; index: number }>({

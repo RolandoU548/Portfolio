@@ -4,15 +4,15 @@ import { useTranslations } from "../i18n/utils";
 import type { languageList } from "../i18n/ui";
 import { AnimatedSelect } from "./AnimatedSelect.jsx";
 
-export const Header = () => {
+interface HeaderProps {
+  currentLang: keyof typeof languageList;
+}
+
+export const Header = ({ currentLang }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("#home");
 
-  const currentLang =
-    typeof window !== "undefined"
-      ? document.documentElement.lang || "en"
-      : "es";
   const t = useTranslations(currentLang as keyof typeof languageList);
 
   useEffect(() => {
