@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { languageList } from "../i18n/ui";
 
-export const AnimatedSelect = () => {
+export const AnimatedSelect = ({ currentLang }) => {
   const FLAG_MAP = {
     en: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/300px-Flag_of_the_United_States.svg.png",
     es: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Bandera_de_Espa%C3%B1a.svg/300px-Bandera_de_Espa%C3%B1a.svg.png",
@@ -16,11 +16,6 @@ export const AnimatedSelect = () => {
   };
 
   const options = createLanguageOptions(languageList);
-
-  const currentLang =
-    typeof window !== "undefined"
-      ? document.documentElement.lang || "en"
-      : "es";
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(

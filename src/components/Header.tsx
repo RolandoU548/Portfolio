@@ -12,7 +12,6 @@ export const Header = ({ currentLang }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("#home");
-
   const t = useTranslations(currentLang as keyof typeof languageList);
 
   useEffect(() => {
@@ -136,7 +135,7 @@ export const Header = ({ currentLang }: HeaderProps) => {
               );
             })}
             <li>
-              <AnimatedSelect />
+              <AnimatedSelect currentLang={currentLang} />
             </li>
           </ul>
         </nav>
@@ -191,7 +190,9 @@ export const Header = ({ currentLang }: HeaderProps) => {
             );
           })}
           <li>
-            <AnimatedSelect />
+            <AnimatedSelect
+              currentLang={currentLang as keyof typeof languageList}
+            />
           </li>
         </ul>
       </div>
