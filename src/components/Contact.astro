@@ -10,11 +10,13 @@ import {
 } from "lucide-react";
 
 const { t } = Astro.props as { t: Function };
+const currentLang = Astro.currentLocale || "en";
 ---
 
 <section
   id="contact"
   class="project-section scroll-mt-5 md:scroll-mt-24 flex flex-col items-center gap-6 md:opacity-0"
+  data-lang={currentLang}
   data-animation="visible-left"
   aria-label={t("contact.title")}
   data-copied={t("contact.copied")}
@@ -189,7 +191,10 @@ const { t } = Astro.props as { t: Function };
         navigator.clipboard
           .writeText(email)
           .then(() => alert(COPIED_MSG))
-          .catch((err) => console.error("Error al copiar", err));
+          .catch((err) => {
+            console.error("Error al copiar", err);
+            alert(COPIED_ERROR);
+          });
       });
     });
 
@@ -210,6 +215,7 @@ const { t } = Astro.props as { t: Function };
           message:
             (form.elements.namedItem("message") as HTMLTextAreaElement)
               ?.value || "",
+          lang: section?.dataset.lang || "en",
         };
 
         try {
