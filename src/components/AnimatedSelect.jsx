@@ -89,7 +89,7 @@ export const AnimatedSelect = ({ currentLang }) => {
             src={selectedOption.flagUrl}
             alt={`Bandera de ${selectedOption.label}`}
             className={`w-6 h-4.5 rounded-xs object-cover block transition-filter duration-200 group-hover:saturate-100 ${
-              isOpen ? "saturate-100" : "saturate-50"
+              isOpen ? "saturate-100" : "saturate-60"
             }`}
           />
         </span>
@@ -130,7 +130,7 @@ export const AnimatedSelect = ({ currentLang }) => {
               className={`${
                 option.value == selectedOption.value
                   ? "saturate-85 bg-gray-700/70"
-                  : "saturate-20"
+                  : "saturate-40"
               } transition-filter duration-200 hover:saturate-100 select-option flex items-center py-3 px-4 cursor-pointer transition-colors hover:bg-gray-700/90`}
               onClick={() => handleOptionClick(option)}
             >

@@ -47,7 +47,7 @@ export const labels = {
     "skills.tab.backend": "Backend",
     "skills.tab.tools": "Tools",
 
-    // Contact (EN)
+    // Contact
     "contact.title": "Contact",
     "contact.description":
       "Don't hesitate to contact me for any project or collaboration.",
@@ -111,7 +111,7 @@ export const labels = {
     "skills.tab.backend": "Backend",
     "skills.tab.tools": "Tools",
 
-    // Contact (ES) - kept as original Spanish
+    // Contact
     "contact.title": "Contacto",
     "contact.description":
       "No dudes en contactarme para cualquier proyecto o colaboración.",
