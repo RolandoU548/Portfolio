@@ -18,6 +18,8 @@ export const labels = {
     "home.description":
       "I design elegant and efficient digital experiences, combining innovation, quality and impact.",
     "home.download": "Download CV",
+    "home.cvLink":
+      "https://drive.google.com/file/d/1_S55-UcBBiTosUd2kzm4zqRTNA4u_2P2/view",
     "home.contact": "Contact me",
 
     // About
@@ -82,6 +84,8 @@ export const labels = {
     "home.description":
       "Diseño experiencias digitales elegantes y eficientes, combinando innovación, calidad e impacto.",
     "home.download": "Descargar CV",
+    "home.cvLink":
+      "https://drive.google.com/file/d/1SGzw8UM1DX1yhyTjvmHOfhFwtFipotZX/view",
     "home.contact": "Contáctame",
 
     // About
