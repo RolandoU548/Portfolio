@@ -21,6 +21,9 @@ export const labels = {
     "home.cvLink":
       "https://drive.google.com/file/d/1_S55-UcBBiTosUd2kzm4zqRTNA4u_2P2/view",
     "home.contact": "Contact me",
+    "home.githubAria": "Go to my GitHub profile",
+    "home.linkedinAria": "Go to my LinkedIn profile",
+    "home.emailAria": "Send an email",
 
     // About
     "about.title": "About Me",
@@ -87,6 +90,9 @@ export const labels = {
     "home.cvLink":
       "https://drive.google.com/file/d/1SGzw8UM1DX1yhyTjvmHOfhFwtFipotZX/view",
     "home.contact": "Contáctame",
+    "home.githubAria": "Ir a mi perfil de GitHub",
+    "home.linkedinAria": "Ir a mi perfil de LinkedIn",
+    "home.emailAria": "Enviar un correo electrónico",
 
     // About
     "about.title": "Sobre Mí",

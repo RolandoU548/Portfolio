@@ -16,9 +16,9 @@ const { t } = Astro.props as { t: Function };
           >{t("home.title")}</span
         >
       </h2>
-      <h4 class="mt-1 text-2xl opacity-90 text-blue-200">
+      <h3 class="mt-1 text-2xl opacity-90 text-blue-200">
         {t("home.subtitle")}
-      </h4>
+      </h3>
     </div>
     <p class="w-full sm:w-2/3 text-xl text-pretty">
       {t("home.description")}
@@ -30,6 +30,7 @@ const { t } = Astro.props as { t: Function };
         class="contact-item"
         href="https://github.com/RolandoU548"
         target="_blank"
+        aria-label={t("home.githubAria")}
       >
         <Github />
       </a>
@@ -37,10 +38,15 @@ const { t } = Astro.props as { t: Function };
         class="contact-item"
         href="https://www.linkedin.com/in/rolando-uzc%C3%A1tegui/"
         target="_blank"
+        aria-label={t("home.linkedinAria")}
       >
         <Linkedin />
       </a>
-      <a class="mail-bubble contact-item" href="mailto:rolandou548@gmail.com">
+      <a
+        class="mail-bubble contact-item"
+        href="mailto:rolandou548@gmail.com"
+        aria-label={t("home.emailAria")}
+      >
         <Mail />
       </a>
     </div>

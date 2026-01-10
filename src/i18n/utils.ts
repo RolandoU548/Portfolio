@@ -1,4 +1,4 @@
-import { labels, defaultLang } from "./ui.ts";
+import { labels, defaultLang } from "./ui";
 
 export function useTranslations(
   lang: keyof typeof labels

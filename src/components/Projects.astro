@@ -43,7 +43,8 @@ const { t } = Astro.props as { t: Function };
               <figure class="h-64 w-full">
                 <img
                   src={image}
-                  alt={title}
+                  alt=""
+                  aria-hidden="true"
                   class="object-cover h-full w-full"
                 />
               </figure>
@@ -60,7 +61,8 @@ const { t } = Astro.props as { t: Function };
                           <img
                             class="opacity-100 size-5 inline-block"
                             src={tag[1]}
-                            alt={tag[0]}
+                            alt=""
+                            aria-hidden="true"
                           />
                           {tag[0]}
                         </span>
