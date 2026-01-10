@@ -1,7 +1,7 @@
 ---
 title: "SERO PROJECT"
 locale: "es"
-image: "/sero.jpg"
+image: "../../../assets/images/sero.webp"
 tags:
   [
     ["React", "/logos/react.svg"],

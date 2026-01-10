@@ -26,7 +26,7 @@ const title = `${t("home.name")} | ${t("home.title")}`;
 const description = t("home.description");
 ---
 
-<Layout title={title} description={description} image="/c2.jpg">
+<Layout title={title} description={description} image="/favicon.svg">
   <Decoration />
   <Header client:load currentLang={currentLang as keyof typeof languageList} />
   <main class="max-w-4xl md:mt-12 px-4 lg:p-0 mx-auto flex flex-col gap-16">
@@ -34,7 +34,7 @@ const description = t("home.description");
     <About t={t} />
     <Projects t={t} />
     <Skills
-      client:load
+      client:visible
       currentLang={currentLang as keyof typeof languageList}
     />
     <Contact t={t} />

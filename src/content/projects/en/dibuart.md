@@ -1,7 +1,7 @@
 ---
 title: "DibuArt"
 locale: "en"
-image: "/dibuart.jpg"
+image: "../../../assets/images/dibuart.webp"
 tags:
   [
     ["Next", "/logos/nextjs.svg"],

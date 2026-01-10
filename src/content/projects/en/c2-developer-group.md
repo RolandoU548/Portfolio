@@ -1,7 +1,7 @@
 ---
 title: "C2 DEVELOPER GROUP"
 locale: "en"
-image: "/c2.jpg"
+image: "../../../assets/images/c2.webp"
 tags:
   [
     ["Astro", "/logos/astro.svg"],

@@ -1,7 +1,7 @@
 ---
 title: "SMART PAGO MÓVIL (Frontend)"
 locale: "es"
-image: "/smart-pago-movil.jpg"
+image: "../../../assets/images/smart-pago-movil.webp"
 tags:
   [
     ["HTML", "/logos/html.svg"],

@@ -1,10 +1,13 @@
 import { useState, useRef, useEffect } from "react";
 import { languageList } from "../i18n/ui";
 
+import USFlag from "../assets/images/Flag_of_the_United_States.webp";
+import ESFlag from "../assets/images/Flag_of_Spain.webp";
+
 export const AnimatedSelect = ({ currentLang }) => {
   const FLAG_MAP = {
-    en: "/Flag_of_the_United_States.webp",
-    es: "/Flag_of_Spain.webp",
+    en: USFlag.src,
+    es: ESFlag.src,
   };
 
   const createLanguageOptions = (list) => {

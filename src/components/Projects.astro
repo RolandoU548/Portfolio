@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
+import { Image } from "astro:assets";
 import { ExternalLink, Github, PanelsTopLeft } from "lucide-react";
 
 const projects = (
@@ -41,8 +42,10 @@ const { t } = Astro.props as { t: Function };
           <li>
             <article class="overflow-hidden flex flex-col rounded-xl bg-[linear-gradient(145deg,#1e293b80,#1e293b33)] backdrop-blur-md border border-blue-500/20 transition-all duration-300 ease-in-out hover:translate-y-[-5px] hover:border-blue-500/50 hover:shadow-[0px_10px_20px_rgba(59,130,246,0.1)] h-full">
               <figure class="h-64 w-full">
-                <img
+                <Image
                   src={image}
+                  widths={[400, 800, 1200]}
+                  sizes={`(max-width: 768px) 100vw, 800px`}
                   alt=""
                   aria-hidden="true"
                   class="object-cover h-full w-full"
