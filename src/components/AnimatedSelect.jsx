@@ -3,8 +3,8 @@ import { languageList } from "../i18n/ui";
 
 export const AnimatedSelect = ({ currentLang }) => {
   const FLAG_MAP = {
-    en: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/300px-Flag_of_the_United_States.svg.png",
-    es: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Bandera_de_Espa%C3%B1a.svg/300px-Bandera_de_Espa%C3%B1a.svg.png",
+    en: "/Flag_of_the_United_States.webp",
+    es: "/Flag_of_Spain.webp",
   };
 
   const createLanguageOptions = (list) => {
@@ -116,23 +116,20 @@ export const AnimatedSelect = ({ currentLang }) => {
         style={dropdownStyle}
       >
         {options.map((option) => (
-          <a
-            onClick={(e) => {
-              if (option.value == selectedOption.value) {
-                e.preventDefault();
-              }
-            }}
-            key={option.value}
-            href={`/${option.value}`}
-          >
-            <li
-              data-value={option.value}
+          <li key={option.value}>
+            <a
+              onClick={(e) => {
+                if (option.value === selectedOption.value) {
+                  e.preventDefault();
+                }
+                handleOptionClick(option);
+              }}
+              href={`/${option.value}`}
               className={`${
-                option.value == selectedOption.value
+                option.value === selectedOption.value
                   ? "saturate-85 bg-gray-700/70"
                   : "saturate-40"
-              } transition-filter duration-200 hover:saturate-100 select-option flex items-center py-3 px-4 cursor-pointer transition-colors hover:bg-gray-700/90`}
-              onClick={() => handleOptionClick(option)}
+              } transition-filter duration-200 hover:saturate-100 select-option flex items-center py-3 px-4 cursor-pointer transition-colors hover:bg-gray-700/90 w-full h-full`}
             >
               {/* Bandera + Palabra */}
               <img
@@ -141,8 +138,8 @@ export const AnimatedSelect = ({ currentLang }) => {
                 className="w-8 h-6 object-cover rounded-xs mr-3"
               />
               <span className="text-sm">{option.label}</span>
-            </li>
-          </a>
+            </a>
+          </li>
         ))}
       </ul>
     </div>
