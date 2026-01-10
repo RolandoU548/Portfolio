@@ -1,6 +1,23 @@
 ---
 import "../styles/global.css";
 const currentLang = Astro.currentLocale || "en";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  article?: boolean;
+}
+
+const {
+  title,
+  description,
+  image = "/favicon.svg",
+  article = false,
+} = Astro.props;
+const site = "https://rolandouzcategui.com";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || site);
+const socialImageURL = new URL(image, Astro.url);
 ---
 
 <!doctype html>
@@ -10,7 +27,58 @@ const currentLang = Astro.currentLocale || "en";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Rolando Uzcátegui</title>
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="web developer, astro, portfolio, Rolando Uzcátegui"
+    />
+    <meta name="author" content="Rolando Uzcátegui" />
+    <meta
+      name="google-site-verification"
+      content="SRS7GN_ZYskBURXMjkUeq2Uy0lIfizk9_z2uhFWOrnY"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={article ? "article" : "website"} />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImageURL} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={socialImageURL} />
+
+    <!-- JSON-LD (Person/Portfolio) -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "dateCreated": "2026-01-01T00:00:00-05:00",
+        "dateModified": "2026-01-01T00:00:00-05:00",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Rolando Uzcátegui",
+          "alternateName": "RolandoU548",
+          "jobTitle": "Web Developer",
+          "url": "https://rolandouzcategui.com",
+          "sameAs": [
+            "https://github.com/RolandoU548",
+            "https://linkedin.com/in/rolando-uzc%C3%A1tegui/"
+          ]
+        }
+      }
+    </script>
   </head>
   <body>
     <slot />

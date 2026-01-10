@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rolandouzcategui.com/sitemap-index.xml

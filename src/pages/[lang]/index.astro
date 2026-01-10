@@ -9,13 +9,24 @@ import Contact from "../../components/Contact.astro";
 import Projects from "../../components/Projects.astro";
 import Decoration from "../../components/Decoration.astro";
 import { useTranslations } from "../../i18n/utils";
-import type { languageList } from "../../i18n/ui";
+import { languageList } from "../../i18n/ui";
 
-const currentLang = Astro.currentLocale;
+export const prerender = true;
+
+export function getStaticPaths() {
+  return Object.keys(languageList).map((lang) => {
+    return { params: { lang } };
+  });
+}
+
+const currentLang = Astro.currentLocale || Astro.params.lang;
 const t = useTranslations(currentLang as keyof typeof languageList);
+
+const title = `${t("home.name")} | ${t("home.title")}`;
+const description = t("home.description");
 ---
 
-<Layout>
+<Layout title={title} description={description} image="/c2.jpg">
   <Decoration />
   <Header client:load currentLang={currentLang as keyof typeof languageList} />
   <main class="max-w-4xl md:mt-12 px-4 lg:p-0 mx-auto flex flex-col gap-16">

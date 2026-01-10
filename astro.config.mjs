@@ -6,7 +6,10 @@ import react from "@astrojs/react";
 
 import vercel from "@astrojs/vercel";
 
+import sitemap from "@astrojs/sitemap";
+
 export default defineConfig({
+  site: "https://rolandouzcategui.com",
   output: "server",
   adapter: vercel({
     mode: "edge",
@@ -22,5 +25,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [react()],
+  integrations: [react(), sitemap()],
 });
