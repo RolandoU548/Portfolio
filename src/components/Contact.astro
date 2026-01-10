@@ -35,6 +35,7 @@ const currentLang = Astro.currentLocale || "en";
     <a
       href="https://github.com/RolandoU548"
       target="_blank"
+      aria-label={t("home.githubAria")}
       class="relative group flex justify-center items-center bg-[linear-gradient(145deg,#50506070,#50506010)] backdrop-blur-md rounded-full h-20 w-20 transition duration-300 hover:bg-blue-950 border-blue-300 hover:border hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,_114,_255,_0.4)]"
     >
       <div
@@ -54,6 +55,7 @@ const currentLang = Astro.currentLocale || "en";
     <a
       href="https://www.linkedin.com/in/rolando-uzc%C3%A1tegui/"
       target="_blank"
+      aria-label={t("home.linkedinAria")}
       class="relative group flex justify-center items-center bg-[linear-gradient(145deg,#50506070,#50506010)] backdrop-blur-md rounded-full h-20 w-20 transition duration-300 hover:bg-blue-950 border-blue-300 hover:border hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,_114,_255,_0.4)]"
     >
       <div
@@ -72,6 +74,7 @@ const currentLang = Astro.currentLocale || "en";
     </a>
     <a
       href="mailto:rolandou548@gmail.com"
+      aria-label={t("home.emailAria")}
       class="mail-bubble relative group flex justify-center items-center bg-[linear-gradient(145deg,#50506070,#50506010)] backdrop-blur-md rounded-full h-20 w-20 transition duration-300 hover:bg-blue-950 border-blue-300 hover:border hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,_114,_255,_0.4)]"
       data-email={t("contact.emailLabel")}
     >

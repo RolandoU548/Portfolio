@@ -10,6 +10,8 @@ export const labels = {
     "nav.projects": "Projects",
     "nav.skills": "Skills",
     "nav.contact": "Contact",
+    "nav.openMenu": "Open navigation menu",
+    "nav.closeMenu": "Close navigation menu",
 
     // Home
     "home.name": "Rolando Uzcátegui",
@@ -79,6 +81,8 @@ export const labels = {
     "nav.projects": "Proyectos",
     "nav.skills": "Habilidades",
     "nav.contact": "Contacto",
+    "nav.openMenu": "Abrir menú de navegación",
+    "nav.closeMenu": "Cerrar menú de navegación",
 
     // Home
     "home.name": "Rolando Uzcátegui",

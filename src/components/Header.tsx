@@ -146,6 +146,7 @@ export const Header = ({ currentLang }: HeaderProps) => {
         onClick={() => {
           setIsMenuOpen(true);
         }}
+        aria-label={t("nav.openMenu")}
         className="block md:hidden fixed top-3 right-3 z-40 p-2 bg-[linear-gradient(145deg,#5e697b80,#5e698b33)] backdrop-blur-md rounded-full transition-all duration-300 hover:bg-[linear-gradient(145deg,#5e697bc0,#5e698b73)] cursor-pointer"
       >
         <AlignJustify className="w-8 h-8" />
@@ -157,6 +158,7 @@ export const Header = ({ currentLang }: HeaderProps) => {
       >
         <button
           className="absolute cursor-pointer top-3 right-3 p-2 rounded-full bg-[linear-gradient(145deg,#5e697b80,#5e698b33)] transition-all duration-300 hover:bg-[linear-gradient(145deg,#5e697bc0,#5e698b73)]"
+          aria-label={t("nav.closeMenu")}
           onClick={() => {
             setIsMenuOpen(false);
           }}
