@@ -3,4 +3,4 @@ Allow: /
 Allow: /en/
 Allow: /es/
 
-Sitemap: https://rolandouzcategui.com/sitemap-index.xml
+Sitemap: https://www.rolandouzcategui.com/sitemap-index.xml
