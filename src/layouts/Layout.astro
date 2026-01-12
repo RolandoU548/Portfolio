@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
-const currentLang = Astro.currentLocale || "en";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { languageList } from "../i18n/ui";
 
 interface Props {
   title: string;
@@ -15,6 +16,11 @@ const {
   image = "/favicon.svg",
   article = false,
 } = Astro.props;
+
+const currentLang = Astro.currentLocale || "en";
+const languages = Object.keys(languageList);
+const pathWithoutLang = Astro.url.pathname.replace(/^\/[a-z]{2}(\/|$)/, "/");
+
 const site = "https://rolandouzcategui.com";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || site);
 const socialImageURL = new URL(image, Astro.url);
@@ -50,6 +56,29 @@ const socialImageURL = new URL(image, Astro.url);
     <meta name="googlebot" content="index, follow" />
     <link rel="canonical" href={canonicalURL} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    {
+      languages.map((lang) => (
+        <link
+          rel="alternate"
+          hreflang={lang}
+          href={
+            new URL(
+              getRelativeLocaleUrl(lang, pathWithoutLang),
+              Astro.site || site
+            )
+          }
+        />
+      ))
+    }
+
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(
+        getRelativeLocaleUrl("en", pathWithoutLang),
+        Astro.site || site
+      )}
+    />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={article ? "article" : "website"} />

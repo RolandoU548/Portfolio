@@ -10,6 +10,7 @@ import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   site: "https://rolandouzcategui.com",
+  trailingSlash: "never",
   output: "server",
   adapter: vercel({
     mode: "edge",
@@ -25,5 +26,16 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [react(), sitemap()],
+  integrations: [
+    react(),
+    sitemap({
+      i18n: {
+        defaultLocale: "en",
+        locales: {
+          en: "en",
+          es: "es",
+        },
+      },
+    }),
+  ],
 });
