@@ -1,7 +1,6 @@
 ---
 import "../styles/global.css";
-import { getRelativeLocaleUrl } from "astro:i18n";
-import { languageList } from "../i18n/ui";
+import SEO from "../components/SEO.astro";
 
 interface Props {
   title: string;
@@ -18,12 +17,6 @@ const {
 } = Astro.props;
 
 const currentLang = Astro.currentLocale || "en";
-const languages = Object.keys(languageList);
-const pathWithoutLang = Astro.url.pathname.replace(/^\/[a-z]{2}(\/|$)/, "/");
-
-const site = "https://www.rolandouzcategui.com";
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || site);
-const socialImageURL = new URL(image, Astro.url);
 ---
 
 <!doctype html>
@@ -40,59 +33,12 @@ const socialImageURL = new URL(image, Astro.url);
     <meta name="theme-color" content="#01091c" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- SEO -->
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta
-      name="keywords"
-      content="web developer, astro, portfolio, Rolando Uzcátegui"
+    <SEO
+      title={title}
+      description={description}
+      image={image}
+      article={article}
     />
-    <meta name="author" content="Rolando Uzcátegui" />
-    <meta
-      name="google-site-verification"
-      content="SRS7GN_ZYskBURXMjkUeq2Uy0lIfizk9_z2uhFWOrnY"
-    />
-    <meta name="robots" content="index, follow" />
-    <meta name="googlebot" content="index, follow" />
-    <link rel="canonical" href={canonicalURL} />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    {
-      languages.map((lang) => (
-        <link
-          rel="alternate"
-          hreflang={lang}
-          href={
-            new URL(
-              getRelativeLocaleUrl(lang, pathWithoutLang),
-              Astro.site || site
-            )
-          }
-        />
-      ))
-    }
-
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href={new URL(
-        getRelativeLocaleUrl("en", pathWithoutLang),
-        Astro.site || site
-      )}
-    />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content={article ? "article" : "website"} />
-    <meta property="og:url" content={Astro.url} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={socialImageURL} />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={Astro.url} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={socialImageURL} />
 
     <!-- JSON-LD (Person/Portfolio) -->
     <script type="application/ld+json" is:inline>

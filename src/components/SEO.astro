@@ -1,0 +1,87 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { languageList } from "../i18n/ui";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  article?: boolean;
+}
+
+const {
+  title,
+  description,
+  image = "/favicon.svg",
+  article = false,
+} = Astro.props;
+
+// Enforce safe site URL (with www)
+const site = "https://www.rolandouzcategui.com";
+
+// Helper to clean paths (remove trailing slash unless it is root)
+function cleanPath(path: string) {
+  if (path === "/" || path === "") return "/";
+  return path.endsWith("/") ? path.slice(0, -1) : path;
+}
+
+const currentPath = cleanPath(Astro.url.pathname);
+const canonicalURL = new URL(currentPath, site);
+const socialImageURL = new URL(image, Astro.url);
+
+const languages = Object.keys(languageList);
+// Remove language prefix from path to get the "base" path for translation
+// This regex matches /en/ or /es/ at the start of the path
+const pathWithoutLang = Astro.url.pathname.replace(/^\/[a-z]{2}(\/|$)/, "/");
+---
+
+<!-- SEO -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta
+  name="keywords"
+  content="web developer, astro, portfolio, Rolando Uzcátegui"
+/>
+<meta name="author" content="Rolando Uzcátegui" />
+<meta
+  name="google-site-verification"
+  content="SRS7GN_ZYskBURXMjkUeq2Uy0lIfizk9_z2uhFWOrnY"
+/>
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+
+<!-- Canonical -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Sitemap -->
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<!-- Hreflang -->
+{
+  languages.map((lang) => {
+    const relativePath = getRelativeLocaleUrl(lang, pathWithoutLang);
+    const href = new URL(cleanPath(relativePath), site);
+    return <link rel="alternate" hreflang={lang} href={href} />;
+  })
+}
+
+<!-- x-default (English) -->
+<link
+  rel="alternate"
+  hreflang="x-default"
+  href={new URL(cleanPath(getRelativeLocaleUrl("en", pathWithoutLang)), site)}
+/>
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={article ? "article" : "website"} />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={socialImageURL} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={socialImageURL} />
