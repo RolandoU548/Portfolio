@@ -16,72 +16,76 @@ const {
   article = false,
 } = Astro.props;
 
-// Enforce safe site URL (with www)
-const site = "https://www.rolandouzcategui.com";
+// Definimos el sitio base (sin www)
+const site = "https://rolandouzcategui.com";
 
-// Helper to clean paths (remove trailing slash unless it is root)
+// Función para limpiar el trailing slash
 function cleanPath(path: string) {
-  if (path === "/" || path === "") return "/";
+  if (!path || path === "/") return "/";
   return path.endsWith("/") ? path.slice(0, -1) : path;
 }
 
+// Path actual limpio
 const currentPath = cleanPath(Astro.url.pathname);
+
+// Generamos la Canonical.
+// Al usar 'site' como base, aseguramos que empiece por https://rolandouzcategui.com
+// new URL('/en', site) -> https://rolandouzcategui.com/en
 const canonicalURL = new URL(currentPath, site);
-const socialImageURL = new URL(image, Astro.url);
+
+// Generación de la imagen absoluta para redes sociales
+const socialImageURL = new URL(image, site); // 'site' asegura dominio correcto
 
 const languages = Object.keys(languageList);
-// Remove language prefix from path to get the "base" path for translation
-// This regex matches /en/ or /es/ at the start of the path
-const pathWithoutLang = Astro.url.pathname.replace(/^\/[a-z]{2}(\/|$)/, "/");
+
+// Lógica para obtener el path base sin idioma (para los hreflang)
+// Reemplaza /en o /es al inicio, pero mantiene el resto de la ruta si existe.
+const pathWithoutLang = Astro.url.pathname.replace(/^\/(en|es)(\/|$)/, "/");
 ---
 
-<!-- SEO -->
 <title>{title}</title>
 <meta name="description" content={description} />
+<meta name="author" content="Rolando Uzcátegui" />
 <meta
   name="keywords"
-  content="web developer, astro, portfolio, Rolando Uzcátegui"
+  content="web developer, astro, portfolio, Rolando Uzcátegui, software engineer"
 />
-<meta name="author" content="Rolando Uzcátegui" />
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
 <meta
   name="google-site-verification"
   content="SRS7GN_ZYskBURXMjkUeq2Uy0lIfizk9_z2uhFWOrnY"
 />
-<meta name="robots" content="index, follow" />
-<meta name="googlebot" content="index, follow" />
 
-<!-- Canonical -->
-<link rel="canonical" href={canonicalURL} />
+<link rel="canonical" href={canonicalURL.href} />
 
-<!-- Sitemap -->
 <link rel="sitemap" href="/sitemap-index.xml" />
 
-<!-- Hreflang -->
 {
   languages.map((lang) => {
+    // Obtener la ruta relativa para cada idioma (ej: /es/about)
     const relativePath = getRelativeLocaleUrl(lang, pathWithoutLang);
+    // Limpiar el slash final y construir la URL absoluta
     const href = new URL(cleanPath(relativePath), site);
-    return <link rel="alternate" hreflang={lang} href={href} />;
+    return <link rel="alternate" hreflang={lang} href={href.href} />;
   })
 }
 
-<!-- x-default (English) -->
 <link
   rel="alternate"
   hreflang="x-default"
-  href={new URL(cleanPath(getRelativeLocaleUrl("en", pathWithoutLang)), site)}
+  href={new URL(cleanPath(getRelativeLocaleUrl("en", pathWithoutLang)), site)
+    .href}
 />
 
-<!-- Open Graph / Facebook -->
 <meta property="og:type" content={article ? "article" : "website"} />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={canonicalURL.href} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={socialImageURL} />
+<meta property="og:image" content={socialImageURL.href} />
 
-<!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:url" content={canonicalURL.href} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={socialImageURL} />
+<meta property="twitter:image" content={socialImageURL.href} />

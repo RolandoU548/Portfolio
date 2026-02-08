@@ -9,7 +9,7 @@ import vercel from "@astrojs/vercel";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://www.rolandouzcategui.com",
+  site: "https://rolandouzcategui.com",
   trailingSlash: "never",
   output: "server",
   adapter: vercel({
